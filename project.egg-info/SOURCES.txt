@@ -1,0 +1,17 @@
+setup.py
+News_Crawler/__init__.py
+News_Crawler/crawl_proxy.py
+News_Crawler/items.py
+News_Crawler/middlewares.py
+News_Crawler/pipelines.py
+News_Crawler/project_settings.py
+News_Crawler/settings.py
+News_Crawler/utils.py
+News_Crawler/spiders/NewsSpider.py
+News_Crawler/spiders/NhanDanNewsSpider.py
+News_Crawler/spiders/__init__.py
+project.egg-info/PKG-INFO
+project.egg-info/SOURCES.txt
+project.egg-info/dependency_links.txt
+project.egg-info/entry_points.txt
+project.egg-info/top_level.txt
