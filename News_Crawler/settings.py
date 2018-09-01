@@ -95,7 +95,8 @@ PROXY_MODE = 0
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     "News_Crawler.pipelines.CleanItemPipeline": 200,
-   'News_Crawler.pipelines.SaveChunkFilePipeline': 300,
+    # "News_Crawler.pipelines.TransformItemPipeLine": 250,
+    "News_Crawler.pipelines.SaveChunkFilePipeline": 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

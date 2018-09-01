@@ -5,3 +5,4 @@ crawl_limit = {
 }
 
 file_chunk_size = 9
+default_time_fmt = "%d-%m-%Y_%H-%M-%S"

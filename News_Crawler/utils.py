@@ -1,14 +1,20 @@
 import os, time, json
 from datetime import datetime
 import News_Crawler.project_settings as settings
+from News_Crawler.project_settings import default_time_fmt
 
 
-def get_time_str(time=datetime.now(), fmt="%d-%m-%Y_%H-%M-%S"):
+def get_time_str(time=datetime.now(), fmt=default_time_fmt):
     return time.strftime(fmt)
 
 
-def get_time_obj(time_str, fmt="%d-%m-%Y_%H%M%S"):
+def get_time_obj(time_str, fmt=default_time_fmt):
     return datetime.strptime(time_str, fmt)
+
+
+def transform_time_fmt(time_str, src_fmt, dst_fmt=default_time_fmt):
+    time_obj = get_time_obj(time_str, src_fmt)
+    return get_time_str(time_obj, dst_fmt)
 
 
 def mkdirs(dir):
@@ -29,6 +35,15 @@ def save_json(data, path):
     with open(path, 'w') as f:
         json.dump(data, f, ensure_ascii=False)
     print("Save json data (size = {}) to {} done".format(len(data), path))
+
+
+def save_list(data, path):
+    dir = path[:path.rfind("/")]
+    mkdirs(dir)
+
+    with open(path, 'w') as f:
+        f.write("\n".join(data))
+    print("Save list data (size = {}) to {} done".format(len(data), path))
 
 
 def get_crawl_limit(domain):

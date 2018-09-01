@@ -28,7 +28,7 @@ class SaveChunkFilePipeline(object):
         if items is None:
             items = []
             map_category_items.update({category: items})
-        items.append(item)
+        items.append(dict(item))
 
         return item
 
@@ -53,11 +53,20 @@ class SaveChunkFilePipeline(object):
 class CleanItemPipeline(object):
 
     def __init__(self):
-        self.re = re.compile("[^\w\s]")
+        self.re = re.compile(r"[^\w\s]")
 
     def process_item(self, item, spider):
 
         item["title"] = self.re.sub('', item["title"].strip())
         item["category"] = self.re.sub('', item["category"].strip())
+
+        return item
+
+
+class TransformItemPipeLine(object):
+
+    def process_item(self, item, spider):
+        # time_str = '_'.join(item["time"].split(", ")[1:])
+        # item["time"] = time_str
 
         return item

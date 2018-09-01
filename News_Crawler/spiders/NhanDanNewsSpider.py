@@ -10,7 +10,7 @@ class NhanDanNewsSpider(NewsSpider):
     start_urls = ["http://www.nhandan.com.vn"]
 
     def parse(self, response):
-        for a in response.css("div#topnav li.tn_menu a"):
+        for a in response.css("div#topnav li.tn_menu a")[:2]:
             category_url = a.xpath("@href").extract_first()
             category_url_fmt = response.urljoin(category_url) + "?limitstart={}"
 
@@ -31,7 +31,7 @@ class NhanDanNewsSpider(NewsSpider):
 
         # Navigate to article
         article_urls = response.css(".media-body a.pull-left::attr(href)").extract()
-        for article_url in article_urls:
+        for article_url in article_urls[:3]:
             article_url = response.urljoin(article_url)
             yield Request(article_url, self.parse_article, meta={"category": meta["category"]})
 
@@ -51,14 +51,18 @@ class NhanDanNewsSpider(NewsSpider):
         category = response.meta["category"]
         intro = table.css("div.ndcontent.ndb p ::text").extract()
         content = table.css("div[class=ndcontent] p ::text").extract()
-        time = table.css("div.icon_date_top>div.pull-left::text").extract()
+        time = table.css("div.icon_date_top>div.pull-left::text").extract_first()
+
+        # Transform time to uniform format
+        time = '_'.join(time.split(", ")[1:])
+        time = self.transform_time_fmt(time, src_fmt="%d/%m/%Y_%H:%M:%S")
 
         self.article_scraped_count += 1
         yield Article(
             url=url,
             lang=lang,
             title=' '.join(title),
-            category=' '.join(category),
+            category=category,
             intro=' '.join(intro),
             content=' '.join(content),
             time=time
