@@ -1,0 +1,1 @@
+scrapy_proxies==0.4

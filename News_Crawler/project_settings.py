@@ -1,10 +1,7 @@
 crawl_limit = {
-    "Nhân dân": 3,
-    "Em đẹp": 0
+    "Nhân dân": 1,
+    "Em đẹp": 0,
+    "default_crawl_limit": 2
 }
 
-default_crawl_limit = 5
-
-
-def get_crawl_limit(domain):
-    return default_crawl_limit if default_crawl_limit > 0 else crawl_limit.get(domain, 2)
+file_chunk_size = 9

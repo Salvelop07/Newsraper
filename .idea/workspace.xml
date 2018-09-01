@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="142f6d65-4776-4131-96c2-c7bdfd6a756d" name="Default Changelist" comment="" />
+    <list default="true" id="142f6d65-4776-4131-96c2-c7bdfd6a756d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/News_Crawler/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/News_Crawler/pipelines.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/News_Crawler/project_settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/News_Crawler/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/News_Crawler/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/News_Crawler/spiders/NewsSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/News_Crawler/spiders/NewsSpider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/News_Crawler/spiders/NhanDanNewsSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/News_Crawler/spiders/NhanDanNewsSpider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/News_Crawler/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/News_Crawler/utils.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,47 +21,66 @@
     <session id="-1142580140">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.12" value="2" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="6" />
+          <entry key="py" value="9" />
+          <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="6" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="Python" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="2379" />
+          <entry key="dummy" value="5" />
+          <entry key="py" value="5100" />
+          <entry key="txt" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="2379" />
+          <entry key="PLAIN_TEXT" value="9" />
+          <entry key="Python" value="5100" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/News_Crawler/middlewares.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1113" />
+            <state relative-caret-position="1957">
+              <caret line="103" selection-start-line="103" selection-end-line="103" />
+            </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/News_Crawler/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="55" column="43" lean-forward="true" selection-start-line="55" selection-start-column="43" selection-end-line="55" selection-end-column="43" />
+            <state relative-caret-position="375">
+              <caret line="72" column="37" selection-start-line="72" selection-start-column="37" selection-end-line="72" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/News_Crawler/project_settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -69,27 +97,33 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/News_Crawler/project_settings.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/News_Crawler/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="88" selection-start-line="9" selection-start-column="88" selection-end-line="9" selection-end-column="88" />
+            <state relative-caret-position="205">
+              <caret line="29" column="46" lean-forward="true" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
               <folding>
-                <marker date="1535741164957" expanded="true" signature="108:113" ph="..." />
+                <element signature="e#0#21#0" expanded="true" />
+                <marker date="1535779885199" expanded="true" signature="369:370" ph="..." />
+                <marker date="1535779885199" expanded="true" signature="392:702" ph="..." />
+                <marker date="1535779885199" expanded="true" signature="546:702" ph="..." />
+                <marker date="1535779885199" expanded="true" signature="730:735" ph="..." />
+                <marker date="1535779885199" expanded="true" signature="921:960" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/News_Crawler/utils.py">
+        <entry file="file://$PROJECT_DIR$/News_Crawler/pipelines.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+            <state relative-caret-position="177">
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
               <folding>
-                <element signature="e#0#15#0" expanded="true" />
-                <marker date="1535731027048" expanded="true" signature="255:314" ph="..." />
-                <marker date="1535731027048" expanded="true" signature="312:313" ph="..." />
+                <element signature="e#194#224#0" expanded="true" />
+                <marker date="1535778933391" expanded="true" signature="308:498" ph="..." />
+                <marker date="1535778933391" expanded="true" signature="528:578" ph="..." />
+                <marker date="1535778933391" expanded="true" signature="1018:1027" ph="..." />
               </folding>
             </state>
           </provider>
@@ -98,26 +132,25 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/News_Crawler/spiders/NewsSpider.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+            <state relative-caret-position="76">
+              <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
-                <marker date="1535740157352" expanded="true" signature="106:107" ph="..." />
-                <marker date="1535740157352" expanded="true" signature="153:336" ph="..." />
+                <marker date="1535778141165" expanded="true" signature="95:96" ph="..." />
+                <marker date="1535778141165" expanded="true" signature="140:333" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/News_Crawler/spiders/NhanDanNewsSpider.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="63" column="37" lean-forward="true" selection-start-line="63" selection-start-column="37" selection-end-line="63" selection-end-column="37" />
+            <state relative-caret-position="665">
+              <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
-                <marker date="1535741577003" expanded="true" signature="173:178" ph="..." />
-                <marker date="1535741577003" expanded="true" signature="1208:1796" ph="..." />
+                <marker date="1535776928667" expanded="true" signature="173:178" ph="..." />
               </folding>
             </state>
           </provider>
@@ -126,7 +159,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file:///usr/local/lib/python3.5/dist-packages/scrapy/spiders/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1491">
+            <state relative-caret-position="1520">
               <caret line="89" column="33" selection-start-line="89" selection-start-column="8" selection-end-line="89" selection-end-column="33" />
             </state>
           </provider>
@@ -141,15 +174,24 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/News_Crawler/spiders/project_settings.py" />
-        <option value="$PROJECT_DIR$/News_Crawler/utils.py" />
         <option value="$PROJECT_DIR$/News_Crawler/items.py" />
-        <option value="$PROJECT_DIR$/News_Crawler/spiders/NewsSpider.py" />
-        <option value="$PROJECT_DIR$/News_Crawler/project_settings.py" />
+        <option value="$PROJECT_DIR$/News_Crawler/project_settings.txt" />
+        <option value="$PROJECT_DIR$/News_Crawler/crawl_limit.txt" />
+        <option value="$PROJECT_DIR$/News_Crawler/crawl_limit.py" />
+        <option value="$PROJECT_DIR$/News_Crawler/middlewares.py" />
         <option value="$PROJECT_DIR$/News_Crawler/spiders/NhanDanNewsSpider.py" />
+        <option value="$PROJECT_DIR$/News_Crawler/project_settings.py" />
+        <option value="$PROJECT_DIR$/News_Crawler/spiders/NewsSpider.py" />
+        <option value="$PROJECT_DIR$/News_Crawler/settings.py" />
+        <option value="$PROJECT_DIR$/News_Crawler/pipelines.py" />
+        <option value="$PROJECT_DIR$/News_Crawler/utils.py" />
       </list>
     </option>
   </component>
@@ -158,6 +200,7 @@
     <option name="width" value="1366" />
     <option name="height" value="709" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -208,23 +251,51 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="utils" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="News_Crawler" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/News_Crawler" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/News_Crawler/utils.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.utils" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-11" width="1368" height="717" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24944155" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24944155" />
       <window_info id="Structure" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Python Console" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32840723" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32840723" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Python Console" order="8" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -234,27 +305,20 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/News_Crawler/project_settings.txt" />
+    <entry file="file://$PROJECT_DIR$/News_Crawler/crawl_limit.txt" />
+    <entry file="file://$PROJECT_DIR$/News_Crawler/crawl_limit.py" />
     <entry file="file://$PROJECT_DIR$/News_Crawler/middlewares.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1113" />
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/lib/python3.5/dist-packages/scrapy/spiders/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1491">
-          <caret line="89" column="33" selection-start-line="89" selection-start-column="8" selection-end-line="89" selection-end-column="33" />
+        <state relative-caret-position="1957">
+          <caret line="103" selection-start-line="103" selection-end-line="103" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/News_Crawler/utils.py">
+    <entry file="file://$PROJECT_DIR$/News_Crawler/project_settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <marker date="1535731027048" expanded="true" signature="255:314" ph="..." />
-            <marker date="1535731027048" expanded="true" signature="312:313" ph="..." />
-          </folding>
+        <state relative-caret-position="19">
+          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -268,43 +332,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/News_Crawler/project_settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="88" selection-start-line="9" selection-start-column="88" selection-end-line="9" selection-end-column="88" />
-          <folding>
-            <marker date="1535741164957" expanded="true" signature="108:113" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/News_Crawler/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="55" column="43" lean-forward="true" selection-start-line="55" selection-start-column="43" selection-end-line="55" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/News_Crawler/spiders/NewsSpider.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+        <state relative-caret-position="76">
+          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1535740157352" expanded="true" signature="106:107" ph="..." />
-            <marker date="1535740157352" expanded="true" signature="153:336" ph="..." />
+            <marker date="1535778141165" expanded="true" signature="95:96" ph="..." />
+            <marker date="1535778141165" expanded="true" signature="140:333" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/News_Crawler/spiders/NhanDanNewsSpider.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="63" column="37" lean-forward="true" selection-start-line="63" selection-start-column="37" selection-end-line="63" selection-end-column="37" />
+        <state relative-caret-position="665">
+          <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1535741577003" expanded="true" signature="173:178" ph="..." />
-            <marker date="1535741577003" expanded="true" signature="1208:1796" ph="..." />
+            <marker date="1535776928667" expanded="true" signature="173:178" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.5/dist-packages/scrapy/spiders/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1520">
+          <caret line="89" column="33" selection-start-line="89" selection-start-column="8" selection-end-line="89" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/News_Crawler/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="72" column="37" selection-start-line="72" selection-start-column="37" selection-end-line="72" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/News_Crawler/pipelines.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+          <folding>
+            <element signature="e#194#224#0" expanded="true" />
+            <marker date="1535778933391" expanded="true" signature="308:498" ph="..." />
+            <marker date="1535778933391" expanded="true" signature="528:578" ph="..." />
+            <marker date="1535778933391" expanded="true" signature="1018:1027" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/News_Crawler/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="29" column="46" lean-forward="true" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <marker date="1535779885199" expanded="true" signature="369:370" ph="..." />
+            <marker date="1535779885199" expanded="true" signature="392:702" ph="..." />
+            <marker date="1535779885199" expanded="true" signature="546:702" ph="..." />
+            <marker date="1535779885199" expanded="true" signature="730:735" ph="..." />
+            <marker date="1535779885199" expanded="true" signature="921:960" ph="..." />
           </folding>
         </state>
       </provider>

@@ -11,20 +11,20 @@ class NhanDanNewsSpider(NewsSpider):
 
     def parse(self, response):
         for a in response.css("div#topnav li.tn_menu a"):
-            if self.article_scraped_count < self.article_limit:
-                category_url = a.xpath("@href").extract_first()
-                category_url_fmt = response.urljoin(category_url) + "?limitstart={}"
+            category_url = a.xpath("@href").extract_first()
+            category_url_fmt = response.urljoin(category_url) + "?limitstart={}"
 
-                category = a.xpath("./span/text()").extract_first()
-                limit_start = 0
-                meta = {
-                    "category": category,
-                    "category_url_fmt": category_url_fmt,
-                    "limit_start": limit_start
-                }
+            category = a.xpath("./span/text()").extract_first()
+            limit_start = 0
+            meta = {
+                "category": category,
+                "category_url_fmt": category_url_fmt,
+                "limit_start": limit_start,
+                "page_idx": 0
+            }
 
-                category_url = category_url_fmt.format(limit_start)
-                yield Request(category_url, self.parse_category, meta=meta)
+            category_url = category_url_fmt.format(limit_start)
+            yield Request(category_url, self.parse_category, meta=meta)
 
     def parse_category(self, response):
         meta = response.meta
@@ -32,14 +32,13 @@ class NhanDanNewsSpider(NewsSpider):
         # Navigate to article
         article_urls = response.css(".media-body a.pull-left::attr(href)").extract()
         for article_url in article_urls:
-            if self.article_scraped_count > self.article_limit:
-                break
             article_url = response.urljoin(article_url)
             yield Request(article_url, self.parse_article, meta={"category": meta["category"]})
 
         # Navigate to next page
-        if self.article_scraped_count < self.article_limit and len(article_urls) > 0:
+        if meta["page_idx"] + 1 < self.page_per_category_limit and len(article_urls) > 0:
             meta["limit_start"] += 15
+            meta["page_idx"] += 1
             next_page = meta["category_url_fmt"].format(meta["limit_start"])
             yield Request(next_page, self.parse_category, meta=meta)
 
