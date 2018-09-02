@@ -7,24 +7,38 @@ from News_Crawler.items import Article
 class NhanDanNewsSpider(NewsSpider):
     name = "NhanDan"
     allowed_domains = ["nhandan.com.vn"]
-    start_urls = ["http://www.nhandan.com.vn"]
+    # start_urls = ["http://www.nhandan.com.vn"]
+    start_urls = ["http://www.nhandan.com.vn/congnghe"]
+    categories = ["CÔNG NGHỆ"]
 
-    def parse(self, response):
-        for a in response.css("div#topnav li.tn_menu a"):
-            category_url = a.xpath("@href").extract_first()
-            category_url_fmt = response.urljoin(category_url) + "?limitstart={}"
-
-            category = a.xpath("./span/text()").extract_first()
-            limit_start = 0
+    def start_requests(self):
+        limit_start = 0
+        for category_url, category in zip(self.start_urls, self.categories):
             meta = {
                 "category": category,
-                "category_url_fmt": category_url_fmt,
+                "category_url_fmt": category_url + "?limitstart={}",
                 "limit_start": limit_start,
                 "page_idx": 0
             }
-
-            category_url = category_url_fmt.format(limit_start)
+            category_url = meta["category_url_fmt"].format(meta["limit_start"])
             yield Request(category_url, self.parse_category, meta=meta)
+
+    # def parse(self, response):
+    #     for a in response.css("div#topnav li.tn_menu a"):
+    #         category_url = a.xpath("@href").extract_first()
+    #         category_url_fmt = response.urljoin(category_url) + "?limitstart={}"
+
+    #         category = a.xpath("./span/text()").extract_first()
+    #         limit_start = 0
+    #         meta = {
+    #             "category": category,
+    #             "category_url_fmt": category_url_fmt,
+    #             "limit_start": limit_start,
+    #             "page_idx": 0
+    #         }
+
+    #         category_url = category_url_fmt.format(limit_start)
+    #         yield Request(category_url, self.parse_category, meta=meta)
 
     def parse_category(self, response):
         meta = response.meta
@@ -58,6 +72,9 @@ class NhanDanNewsSpider(NewsSpider):
         time = self.transform_time_fmt(time, src_fmt="%d/%m/%Y_%H:%M:%S")
 
         self.article_scraped_count += 1
+        if self.article_scraped_count % 100 == 0:
+            self.log("Spider {}: Crawl {} items".format(self.name, self.article_scraped_count))
+        
         yield Article(
             url=url,
             lang=lang,

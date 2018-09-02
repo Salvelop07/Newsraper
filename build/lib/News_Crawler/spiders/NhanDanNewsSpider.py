@@ -7,24 +7,38 @@ from News_Crawler.items import Article
 class NhanDanNewsSpider(NewsSpider):
     name = "NhanDan"
     allowed_domains = ["nhandan.com.vn"]
-    start_urls = ["http://www.nhandan.com.vn"]
+    # start_urls = ["http://www.nhandan.com.vn"]
+    start_urls = ["http://www.nhandan.com.vn/giaoduc"]
+    categories = ["GIÁO DỤC"]
 
-    def parse(self, response):
-        for a in response.css("div#topnav li.tn_menu a"):
-            category_url = a.xpath("@href").extract_first()
-            category_url_fmt = response.urljoin(category_url) + "?limitstart={}"
+    def start_requests(self):
+    	limit_start = 0
+    	for category_url, category in zip(self.start_urls, self.categories):	
+	    	meta = {
+	    		"category": category,
+	            "category_url_fmt": category_url + "?limitstart={}",
+	            "limit_start": limit_start,
+	            "page_idx": 0
+	    	}
+	    	category_url = meta["category_url_fmt"].format(meta["limit_start"])
+	    	yield Request(category_url, self.parse_category, meta=meta)
 
-            category = a.xpath("./span/text()").extract_first()
-            limit_start = 0
-            meta = {
-                "category": category,
-                "category_url_fmt": category_url_fmt,
-                "limit_start": limit_start,
-                "page_idx": 0
-            }
+    # def parse(self, response):
+    #     for a in response.css("div#topnav li.tn_menu a"):
+    #         category_url = a.xpath("@href").extract_first()
+    #         category_url_fmt = response.urljoin(category_url) + "?limitstart={}"
 
-            category_url = category_url_fmt.format(limit_start)
-            yield Request(category_url, self.parse_category, meta=meta)
+    #         category = a.xpath("./span/text()").extract_first()
+    #         limit_start = 0
+    #         meta = {
+    #             "category": category,
+    #             "category_url_fmt": category_url_fmt,
+    #             "limit_start": limit_start,
+    #             "page_idx": 0
+    #         }
+
+    #         category_url = category_url_fmt.format(limit_start)
+    #         yield Request(category_url, self.parse_category, meta=meta)
 
     def parse_category(self, response):
         meta = response.meta

@@ -14,6 +14,10 @@ BOT_NAME = 'News_Crawler'
 SPIDER_MODULES = ['News_Crawler.spiders']
 NEWSPIDER_MODULE = 'News_Crawler.spiders'
 
+FEED_URI = "./Data/Archive/%(name)s/%(time)s.csv"
+FEED_FORMAT = "csv"
+FEED_EXPORT_ENCODING = "utf-8"
+FEED_EXPORT_FIELDS = ["lang", "category", "time", "url", "title", "intro", "content"]
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'News_Crawler (+http://www.yourdomain.com)'
@@ -58,13 +62,13 @@ ROBOTSTXT_OBEY = True
 
 # Proxy middleware settings
 # Retry many times since proxies often fail
-# RETRY_TIMES = 5
+RETRY_TIMES = 5
 # Retry on most error codes since proxies fail for different reasons
-# RETRY_HTTP_CODES = [500, 503, 504, 400, 403, 404, 408]
+RETRY_HTTP_CODES = [500, 503, 504, 400, 403, 404, 408]
 
 DOWNLOADER_MIDDLEWARES = {
-    # 'scrapy.downloadermiddlewares.retry.RetryMiddleware': 90,
-    # 'scrapy_proxies.RandomProxy': 100,
+    'scrapy.downloadermiddlewares.retry.RetryMiddleware': 90,
+    'scrapy_proxies.RandomProxy': 100,
     "scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware": 110,
 }
 
@@ -73,13 +77,13 @@ DOWNLOADER_MIDDLEWARES = {
 # http://username:password@host2:port
 # http://host3:port
 # ...
-# PROXY_LIST = "./Proxy/proxy_list.txt"
+PROXY_LIST = "./News_Crawler/Proxy/proxy_list.txt"
 
 # Proxy mode
 # 0 = Every requests have different proxy
 # 1 = Take only one proxy from the list and assign it to every requests
 # 2 = Put a custom proxy to use in the settings
-# PROXY_MODE = 0
+PROXY_MODE = 0
 
 # If proxy mode is 2 uncomment this sentence :
 #CUSTOM_PROXY = "http://host1:port"

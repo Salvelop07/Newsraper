@@ -1,7 +1,7 @@
 crawl_limit = {
-    "Nhân dân": 2,
+    "NhanDan": 200,
     "Em đẹp": 0,
-    "default_crawl_limit": 5
+    "default_crawl_limit": 200
 }
 
 file_chunk_size = 1000

@@ -36,10 +36,10 @@ if __name__ == "__main__":
     proxies = crawl_latest_proxies()
     proxy_dir = "./Proxy"
     utils.mkdirs(proxy_dir)
-    proxies.to_csv(os.path.join(proxy_dir, "./proxies.csv"), index=False)
+    proxies.to_csv(os.path.join(proxy_dir, "proxies.csv"), index=False)
 
     proxy_urls = get_proxy_urls(proxies)
-    utils.save_list(proxy_urls, path=os.path.join(proxy_dir, "./proxy_list.txt"))
+    utils.save_list(proxy_urls, path=os.path.join(proxy_dir, "proxy_list.txt"))
     print(proxies.head())
 
-    print("\n".join(proxy_urls[:10]))
+    # print("\n".join(proxy_urls[:10]))
