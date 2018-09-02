@@ -8,12 +8,15 @@ class NhanDanNewsSpider(NewsSpider):
     name = "NhanDan"
     allowed_domains = ["nhandan.com.vn"]
     # start_urls = ["http://www.nhandan.com.vn"]
-    start_urls = ["http://www.nhandan.com.vn/congnghe"]
-    categories = ["CÔNG NGHỆ"]
+    # start_urls = ["http://www.nhandan.com.vn/congnghe"]
+    # categories = ["CÔNG NGHỆ"]
+    url_category_list = [
+        ("http://www.nhandan.com.vn/congnghe", "CÔNG NGHỆ")
+    ]
 
     def start_requests(self):
         limit_start = 0
-        for category_url, category in zip(self.start_urls, self.categories):
+        for category_url, category in self.url_category_list:
             meta = {
                 "category": category,
                 "category_url_fmt": category_url + "?limitstart={}",
@@ -61,26 +64,28 @@ class NhanDanNewsSpider(NewsSpider):
 
         url = response.url
         lang = self.lang
-        title = table.css("div.ndtitle ::text").extract()
+        title = table.css("div.ndtitle ::text").extract_first()
         category = response.meta["category"]
-        intro = table.css("div.ndcontent.ndb p ::text").extract()
-        content = table.css("div[class=ndcontent] p ::text").extract()
+        intro = table.css("div.ndcontent.ndb p ::text").extract_first()
+        content = table.css("div[class=ndcontent] ::text").extract()
+        content = ' '.join(content)
         time = table.css("div.icon_date_top>div.pull-left::text").extract_first()
 
         # Transform time to uniform format
-        time = '_'.join(time.split(", ")[1:])
-        time = self.transform_time_fmt(time, src_fmt="%d/%m/%Y_%H:%M:%S")
+        if time is not None:
+            time = '_'.join(time.split(", ")[1:])
+            time = self.transform_time_fmt(time, src_fmt="%d/%m/%Y_%H:%M:%S")
 
         self.article_scraped_count += 1
         if self.article_scraped_count % 100 == 0:
-            self.log("Spider {}: Crawl {} items".format(self.name, self.article_scraped_count))
+            self.logger.info("Spider {}: Crawl {} items".format(self.name, self.article_scraped_count))
         
         yield Article(
             url=url,
             lang=lang,
-            title=' '.join(title),
+            title=title,
             category=category,
-            intro=' '.join(intro),
-            content=' '.join(content),
+            intro=intro,
+            content=content,
             time=time
         )

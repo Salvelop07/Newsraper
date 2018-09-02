@@ -9,6 +9,7 @@ News_Crawler/settings.py
 News_Crawler/utils.py
 News_Crawler/spiders/NewsSpider.py
 News_Crawler/spiders/NhanDanNewsSpider.py
+News_Crawler/spiders/VNExpressNewsSpider.py
 News_Crawler/spiders/__init__.py
 project.egg-info/PKG-INFO
 project.egg-info/SOURCES.txt

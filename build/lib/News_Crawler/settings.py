@@ -14,6 +14,10 @@ BOT_NAME = 'News_Crawler'
 SPIDER_MODULES = ['News_Crawler.spiders']
 NEWSPIDER_MODULE = 'News_Crawler.spiders'
 
+# FEED_URI = "./Data/Archive/%(name)s/%(time)s.csv"
+# FEED_FORMAT = "csv"
+# FEED_EXPORT_ENCODING = "utf-8"
+# FEED_EXPORT_FIELDS = ["lang", "category", "time", "url", "title", "intro", "content"]
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'News_Crawler (+http://www.yourdomain.com)'
@@ -73,7 +77,7 @@ DOWNLOADER_MIDDLEWARES = {
 # http://username:password@host2:port
 # http://host3:port
 # ...
-# PROXY_LIST = "./Proxy/proxy_list.txt"
+# PROXY_LIST = "./News_Crawler/Proxy/proxy_list.txt"
 
 # Proxy mode
 # 0 = Every requests have different proxy
@@ -96,7 +100,7 @@ DOWNLOADER_MIDDLEWARES = {
 ITEM_PIPELINES = {
     "News_Crawler.pipelines.CleanItemPipeline": 200,
     # "News_Crawler.pipelines.TransformItemPipeLine": 250,
-    # "News_Crawler.pipelines.SaveChunkFilePipeline": 300,
+    "News_Crawler.pipelines.SaveFilePipeline": 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

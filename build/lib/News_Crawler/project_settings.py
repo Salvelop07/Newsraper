@@ -1,8 +1,10 @@
-crawl_limit = {
-    "NhanDan": 200,
-    "Em đẹp": 0,
-    "default_crawl_limit": 200
+CRAWL_LIMIT = {
+    "NhanDan": 20,
+    "VNExpress": 3,
+    "default_crawl_limit": 300
 }
 
-file_chunk_size = 1000
-default_time_fmt = "%d-%m-%Y_%H-%M-%S"
+# file_chunk_size = 1000
+DEFAULT_TIME_FORMAT = "%d-%m-%Y_%H-%M-%S"
+EXPORT_FORMAT = "csv"
+EXPORT_FIELDS = ["lang", "category", "time", "url", "title", "intro", "content"]

@@ -9,13 +9,15 @@ from News_Crawler import utils
 import os, math, re
 
 
-class SaveChunkFilePipeline(object):
+class SaveFilePipeline(object):
 
     def __init__(self):
-        self.file_chunk_size = utils.get_file_chunk_size()
-        self.save_dir = "../Data/{}".format(utils.get_time_str())
-        utils.mkdirs(self.save_dir)
+        # self.file_chunk_size = utils.get_file_chunk_size()
+        self.time_now_str = utils.get_time_str()
+        self.base_dir = "./Data/Archive"
         self.data = {}
+        self.export_format = utils.get_export_format_setting()
+        self.export_fields = utils.get_export_fields_setting()
 
     def open_spider(self, spider):
         self.data.update({spider.name: {}})
@@ -37,18 +39,21 @@ class SaveChunkFilePipeline(object):
         spider_name = spider.name
         map_category_items = self.data.get(spider_name)
         # spider_save_dir = os.path.join(self.save_dir, spider_name)
-        file_chunk_size = self.file_chunk_size
         for category, items in map_category_items.items():
-            category_save_dir = os.path.join(self.save_dir, spider_name, category)
-            num_files = int(math.ceil(len(items) / file_chunk_size))
-            for file_idx in range(0, num_files):
-                # Save one file
-                save_path = os.path.join(category_save_dir, "{}_{}.json".format(category, file_idx+1))
-                start_idx = file_idx * file_chunk_size
-                end_idx = start_idx + file_chunk_size
-                utils.save_json(items[start_idx: end_idx], save_path)
-                spider.log("Save {} items to {} done".format(len(items), save_path))
+            category_save_dir = os.path.join(self.base_dir, spider_name, category)
+            utils.mkdirs(category_save_dir)
+            save_path = os.path.join(category_save_dir, "{}_{}_{}_{}articles.{}".format(
+                spider_name, category, self.time_now_str, len(items), self.export_format))
+            # Save items with format setting
+            self.save_data(items, save_path, spider.logger)
 
+    def save_data(self, items, save_path, logger):
+        if self.export_format == "json":
+            utils.save_json(items, save_path)
+        else:
+            utils.save_csv(items, save_path, fields=self.export_fields)
+            
+        logger.info("Save {} items to {} done".format(len(items), save_path))
 
 class CleanItemPipeline(object):
 

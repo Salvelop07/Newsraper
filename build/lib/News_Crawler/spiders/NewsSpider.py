@@ -5,7 +5,7 @@ from News_Crawler import utils
 class NewsSpider(scrapy.Spider):
     def __init__(self, name=None, **kwargs):
         super(NewsSpider, self).__init__(name=name, **kwargs)
-        self.page_per_category_limit = utils.get_crawl_limit(name)
+        self.page_per_category_limit = utils.get_crawl_limit_setting(name)
         self.article_scraped_count = 0
         self.lang = "vi"
 

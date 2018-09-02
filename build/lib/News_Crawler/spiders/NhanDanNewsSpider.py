@@ -8,20 +8,23 @@ class NhanDanNewsSpider(NewsSpider):
     name = "NhanDan"
     allowed_domains = ["nhandan.com.vn"]
     # start_urls = ["http://www.nhandan.com.vn"]
-    start_urls = ["http://www.nhandan.com.vn/giaoduc"]
-    categories = ["GIÁO DỤC"]
+    # start_urls = ["http://www.nhandan.com.vn/congnghe"]
+    # categories = ["CÔNG NGHỆ"]
+    url_category_list = [
+        ("http://www.nhandan.com.vn/congnghe", "CÔNG NGHỆ")
+    ]
 
     def start_requests(self):
-    	limit_start = 0
-    	for category_url, category in zip(self.start_urls, self.categories):	
-	    	meta = {
-	    		"category": category,
-	            "category_url_fmt": category_url + "?limitstart={}",
-	            "limit_start": limit_start,
-	            "page_idx": 0
-	    	}
-	    	category_url = meta["category_url_fmt"].format(meta["limit_start"])
-	    	yield Request(category_url, self.parse_category, meta=meta)
+        limit_start = 0
+        for category_url, category in self.url_category_list:
+            meta = {
+                "category": category,
+                "category_url_fmt": category_url + "?limitstart={}",
+                "limit_start": limit_start,
+                "page_idx": 0
+            }
+            category_url = meta["category_url_fmt"].format(meta["limit_start"])
+            yield Request(category_url, self.parse_category, meta=meta)
 
     # def parse(self, response):
     #     for a in response.css("div#topnav li.tn_menu a"):
@@ -61,10 +64,11 @@ class NhanDanNewsSpider(NewsSpider):
 
         url = response.url
         lang = self.lang
-        title = table.css("div.ndtitle ::text").extract()
+        title = table.css("div.ndtitle ::text").extract_first()
         category = response.meta["category"]
-        intro = table.css("div.ndcontent.ndb p ::text").extract()
+        intro = table.css("div.ndcontent.ndb p ::text").extract_first()
         content = table.css("div[class=ndcontent] p ::text").extract()
+        content = ' '.join(content)
         time = table.css("div.icon_date_top>div.pull-left::text").extract_first()
 
         # Transform time to uniform format
@@ -72,12 +76,15 @@ class NhanDanNewsSpider(NewsSpider):
         time = self.transform_time_fmt(time, src_fmt="%d/%m/%Y_%H:%M:%S")
 
         self.article_scraped_count += 1
+        if self.article_scraped_count % 100 == 0:
+            self.logger.info("Spider {}: Crawl {} items".format(self.name, self.article_scraped_count))
+        
         yield Article(
             url=url,
             lang=lang,
-            title=' '.join(title),
+            title=title,
             category=category,
-            intro=' '.join(intro),
-            content=' '.join(content),
+            intro=intro,
+            content=content,
             time=time
         )

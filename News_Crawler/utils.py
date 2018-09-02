@@ -1,18 +1,19 @@
 import os, time, json, sys
+import pandas as pd
 from datetime import datetime
 import News_Crawler.project_settings as settings
-from News_Crawler.project_settings import default_time_fmt
+from News_Crawler.project_settings import DEFAULT_TIME_FORMAT
 
 
-def get_time_str(time=datetime.now(), fmt=default_time_fmt):
+def get_time_str(time=datetime.now(), fmt=DEFAULT_TIME_FORMAT):
     return time.strftime(fmt)
 
 
-def get_time_obj(time_str, fmt=default_time_fmt):
+def get_time_obj(time_str, fmt=DEFAULT_TIME_FORMAT):
     return datetime.strptime(time_str, fmt)
 
 
-def transform_time_fmt(time_str, src_fmt, dst_fmt=default_time_fmt):
+def transform_time_fmt(time_str, src_fmt, dst_fmt=DEFAULT_TIME_FORMAT):
     time_obj = get_time_obj(time_str, src_fmt)
     return get_time_str(time_obj, dst_fmt)
 
@@ -37,6 +38,14 @@ def save_json(data, path):
     print("Save json data (size = {}) to {} done".format(len(data), path))
 
 
+def save_csv(data, path, fields=None):
+    if fields is None or len(fields) == 0:
+        df = pd.DataFrame(data)
+    else:
+        df = pd.DataFrame(data, columns=fields)
+    df.to_csv(path, index=False)
+
+
 def save_list(data, path):
     dir = path[:path.rfind("/")]
     mkdirs(dir)
@@ -46,8 +55,8 @@ def save_list(data, path):
     print("Save list data (size = {}) to {} done".format(len(data), path))
 
 
-def get_crawl_limit(domain):
-    crawl_limit = settings.crawl_limit
+def get_crawl_limit_setting(domain):
+    crawl_limit = settings.CRAWL_LIMIT
     default = crawl_limit.get("default_crawl_limit")
     limit = crawl_limit.get(domain, 5) if default is None else default
     if limit < 0:
@@ -56,8 +65,16 @@ def get_crawl_limit(domain):
     return limit
 
 
-def get_file_chunk_size():
-    return settings.file_chunk_size
+def get_export_fields_setting():
+    return settings.EXPORT_FIELDS
+
+
+def get_export_format_setting():
+    return settings.EXPORT_FORMAT
+
+
+# def get_file_chunk_size():
+#     return settings.file_chunk_size
 
 
 # if __name__ == "__main__":
