@@ -14,6 +14,7 @@ BOT_NAME = 'News_Crawler'
 SPIDER_MODULES = ['News_Crawler.spiders']
 NEWSPIDER_MODULE = 'News_Crawler.spiders'
 
+# LOG_LEVEL = "INFO"
 # FEED_URI = "./Data/Archive/%(name)s/%(time)s.csv"
 # FEED_FORMAT = "csv"
 # FEED_EXPORT_ENCODING = "utf-8"

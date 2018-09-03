@@ -1,4 +1,5 @@
 import os, time, json, sys
+import urllib3
 import pandas as pd
 from datetime import datetime
 import News_Crawler.project_settings as settings
@@ -53,6 +54,11 @@ def save_list(data, path):
     with open(path, 'w') as f:
         f.write("\n".join(data))
     print("Save list data (size = {}) to {} done".format(len(data), path))
+
+
+def is_valid_url(url):
+    parsed_url = urllib3.util.parse_url(url)
+    return bool(parsed_url.scheme)
 
 
 def get_crawl_limit_setting(domain):

@@ -2,6 +2,7 @@ import scrapy
 from scrapy import Request
 from News_Crawler.spiders.NewsSpider import NewsSpider
 from News_Crawler.items import Article
+from News_Crawler import utils
 
 
 class VNExpressNewsSpider(NewsSpider):
@@ -16,10 +17,11 @@ class VNExpressNewsSpider(NewsSpider):
         # ("https://suckhoe.vnexpress.net/tin-tuc/suc-khoe", "Sức khỏe"),
         # ("https://kinhdoanh.vnexpress.net/tin-tuc/bat-dong-san", "Bất động sản"),
         # ("https://giaitri.vnexpress.net/tin-tuc/lam-dep", "Làm đẹp"),
-        
-        ("https://doisong.vnexpress.net/tin-tuc/nha", "Nhà"),
-        # ("https://kinhdoanh.vnexpress.net/tin-tuc/chung-khoan", "Chứng khoán"),
         # ("https://giaitri.vnexpress.net/tin-tuc/thoi-trang", "Thời trang"),
+        # ("https://doisong.vnexpress.net/tin-tuc/nha", "Nhà"),
+        
+        # ("https://kinhdoanh.vnexpress.net/tin-tuc/chung-khoan", "Chứng khoán"),
+        
         # ("https://thethao.vnexpress.net", "Thể thao"),
         # ("https://vnexpress.net/tin-tuc/giao-duc", "Giáo dục"),
         
@@ -36,28 +38,29 @@ class VNExpressNewsSpider(NewsSpider):
                 "page_idx": page_idx
             }
             category_url = meta["category_url_fmt"].format(meta["page_idx"])
-            yield Request(category_url, self.parse_category, meta=meta)
+            yield Request(category_url, self.parse_category, meta=meta, errback=self.errback)
 
     def parse_category(self, response):
-        meta = response.meta
+        meta = dict(response.meta)
 
         # Navigate to article
-        article_urls = response.css(
-            "section.featured .title_news a:first-child::attr(href)").extract()
+        article_urls = []
+        article_urls.extend(response.css(
+            "section.featured .title_news a:first-child::attr(href)").extract())
         article_urls.extend(response.css(
             "section.sidebar_1 .title_news a:first-child::attr(href)").extract())
         article_urls = list(set(article_urls))
 
-        # Dont check code after this line ...
-
+        self.logger.info("Parse url {}, Num Article urls : {}".format(response.url, len(article_urls)))
         for article_url in article_urls:
-            yield Request(article_url, self.parse_article, meta={"category": meta["category"]})
+            if utils.is_valid_url(article_url):
+                yield Request(article_url, self.parse_article, meta={"category": meta["category"]}, errback=self.errback)
 
         # Navigate to next page
         if meta["page_idx"] < self.page_per_category_limit and len(article_urls) > 0:
             meta["page_idx"] += 1
             next_page = meta["category_url_fmt"].format(meta["page_idx"])
-            yield Request(next_page, self.parse_category, meta=meta)
+            yield Request(next_page, self.parse_category, meta=meta, errback=self.errback)
 
     def parse_article(self, response):
         section = response.css("section.sidebar_1")
@@ -92,3 +95,6 @@ class VNExpressNewsSpider(NewsSpider):
             content=content,
             time=time
         )
+
+    def errback(self, failure):
+        self.logger.error("Error when send requests : ", failure.request)
