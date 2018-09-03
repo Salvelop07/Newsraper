@@ -8,13 +8,13 @@ class VNExpressNewsSpider(NewsSpider):
     name = "VNExpress"
     allowed_domains = ["vnexpress.net"]
     # start_urls = ["https://vnexpress.net"]
-    # start_urls = ["https://vnexpress.net/tin-tuc/oto-xe-may"]
-    # categories = ["XE"]
+
     url_category_list = [
         # ("https://vnexpress.net/tin-tuc/oto-xe-may", "Xe"),
-        # ("https://vnexpress.net/tin-tuc/thoi-su/giao-thong", "Giao thông"),
+        # ("https://suckhoe.vnexpress.net/tin-tuc/dinh-duong", "Dinh dưỡng"),
+        ("https://vnexpress.net/tin-tuc/thoi-su/giao-thong", "Giao thông"),
         # ("https://suckhoe.vnexpress.net/tin-tuc/suc-khoe", "Sức khỏe"),
-        ("https://suckhoe.vnexpress.net/tin-tuc/dinh-duong", "Dinh dưỡng"),
+
         # ("https://kinhdoanh.vnexpress.net/tin-tuc/bat-dong-san", "Bất động sản"),
         # ("https://kinhdoanh.vnexpress.net/tin-tuc/chung-khoan", "Chứng khoán"),
         # ("https://giaitri.vnexpress.net/tin-tuc/lam-dep", "Làm đẹp"),
@@ -66,15 +66,16 @@ class VNExpressNewsSpider(NewsSpider):
         title = section.css(".title_news_detail::text").extract_first()
         category = response.meta["category"]
         intro = section.css(".description::text").extract_first()
-        content = section.css("article.content_detail p.Normal ::text").extract()
+        content = section.css("article.content_detail ::text").extract()
         content = ' '.join(content)
         time = section.css("span.time::text").extract_first()
 
         # Transform time to uniform format
-        time = time.split(", ")
-        time[-1] = time[-1][:5]
-        time = '_'.join(time[1:])
-        time = self.transform_time_fmt(time, src_fmt="%d/%m/%Y_%H:%M")
+        if time is not None:
+            time = time.split(", ")
+            time[-1] = time[-1][:5]
+            time = '_'.join(time[1:])
+            time = self.transform_time_fmt(time, src_fmt="%d/%m/%Y_%H:%M")
 
         self.article_scraped_count += 1
         if self.article_scraped_count % 100 == 0:

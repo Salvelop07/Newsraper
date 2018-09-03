@@ -8,13 +8,13 @@ class VNExpressNewsSpider(NewsSpider):
     name = "VNExpress"
     allowed_domains = ["vnexpress.net"]
     # start_urls = ["https://vnexpress.net"]
-    # start_urls = ["https://vnexpress.net/tin-tuc/oto-xe-may"]
-    # categories = ["XE"]
+
     url_category_list = [
-        ("https://vnexpress.net/tin-tuc/oto-xe-may", "Xe"),
-        # ("https://vnexpress.net/tin-tuc/thoi-su/giao-thong", "Giao thông"),
-        # ("https://suckhoe.vnexpress.net/tin-tuc/suc-khoe", "Sức khỏe"),
+        # ("https://vnexpress.net/tin-tuc/oto-xe-may", "Xe"),
         # ("https://suckhoe.vnexpress.net/tin-tuc/dinh-duong", "Dinh dưỡng"),
+        ("https://vnexpress.net/tin-tuc/thoi-su/giao-thong", "Giao thông"),
+        # ("https://suckhoe.vnexpress.net/tin-tuc/suc-khoe", "Sức khỏe"),
+
         # ("https://kinhdoanh.vnexpress.net/tin-tuc/bat-dong-san", "Bất động sản"),
         # ("https://kinhdoanh.vnexpress.net/tin-tuc/chung-khoan", "Chứng khoán"),
         # ("https://giaitri.vnexpress.net/tin-tuc/lam-dep", "Làm đẹp"),

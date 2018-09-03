@@ -55,6 +55,7 @@ class SaveFilePipeline(object):
             
         logger.info("Save {} items to {} done".format(len(items), save_path))
 
+
 class CleanItemPipeline(object):
 
     def __init__(self):
@@ -64,6 +65,9 @@ class CleanItemPipeline(object):
 
         item["title"] = self.re.sub('', item["title"].strip())
         item["category"] = self.re.sub('', item["category"].strip())
+
+        item["intro"] = re.sub("\s+", ' ', item["intro"]).strip()
+        item["content"] = re.sub("\s+", ' ', item["content"]).strip()
 
         return item
 

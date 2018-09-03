@@ -55,6 +55,7 @@ class SaveFilePipeline(object):
             
         logger.info("Save {} items to {} done".format(len(items), save_path))
 
+
 class CleanItemPipeline(object):
 
     def __init__(self):
@@ -62,8 +63,21 @@ class CleanItemPipeline(object):
 
     def process_item(self, item, spider):
 
+        # Convert None to empty str
+        item["url"] = item["url"] or ''
+        item["title"] = item["title"] or ''
+        item["time"] = item["time"] or ''
+        item["intro"] = item["intro"] or ''
+        item["content"] = item["content"] or ''
+        item["category"] = item["category"] or ''
+        item["lang"] = item["lang"] or ''
+
+        # Replace special character
         item["title"] = self.re.sub('', item["title"].strip())
         item["category"] = self.re.sub('', item["category"].strip())
+
+        item["intro"] = re.sub("\s+", ' ', item["intro"]).strip()
+        item["content"] = re.sub("\s+", ' ', item["content"]).strip()
 
         return item
 

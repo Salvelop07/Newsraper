@@ -11,7 +11,7 @@ class NhanDanNewsSpider(NewsSpider):
     # start_urls = ["http://www.nhandan.com.vn/congnghe"]
     # categories = ["CÔNG NGHỆ"]
     url_category_list = [
-        ("http://www.nhandan.com.vn/congnghe", "CÔNG NGHỆ")
+        ("http://www.nhandan.com.vn/suckhoe", "Sức khỏe")
     ]
 
     def start_requests(self):
@@ -67,13 +67,14 @@ class NhanDanNewsSpider(NewsSpider):
         title = table.css("div.ndtitle ::text").extract_first()
         category = response.meta["category"]
         intro = table.css("div.ndcontent.ndb p ::text").extract_first()
-        content = table.css("div[class=ndcontent] p ::text").extract()
+        content = table.css("div[class=ndcontent] ::text").extract()
         content = ' '.join(content)
         time = table.css("div.icon_date_top>div.pull-left::text").extract_first()
 
         # Transform time to uniform format
-        time = '_'.join(time.split(", ")[1:])
-        time = self.transform_time_fmt(time, src_fmt="%d/%m/%Y_%H:%M:%S")
+        if time is not None:
+            time = '_'.join(time.split(", ")[1:])
+            time = self.transform_time_fmt(time, src_fmt="%d/%m/%Y_%H:%M:%S")
 
         self.article_scraped_count += 1
         if self.article_scraped_count % 100 == 0:
