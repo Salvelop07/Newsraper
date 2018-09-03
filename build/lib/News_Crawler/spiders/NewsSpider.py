@@ -19,5 +19,9 @@ class NewsSpider(scrapy.Spider):
         raise NotImplementedError()
 
     def transform_time_fmt(self, time_str, src_fmt):
-        return utils.transform_time_fmt(time_str, src_fmt=src_fmt)
+        try:
+            return utils.transform_time_fmt(time_str, src_fmt=src_fmt)
+        except:
+            self.logger.debug("Exception when parse time_str : ", time_str)
+            return ""
 

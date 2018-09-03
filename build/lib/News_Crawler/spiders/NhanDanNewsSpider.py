@@ -11,7 +11,13 @@ class NhanDanNewsSpider(NewsSpider):
     # start_urls = ["http://www.nhandan.com.vn/congnghe"]
     # categories = ["CÔNG NGHỆ"]
     url_category_list = [
-        ("http://www.nhandan.com.vn/suckhoe", "Sức khỏe")
+        # ("http://www.nhandan.com.vn/suckhoe", "Sức khỏe")
+        ("http://www.nhandan.com.vn/phapluat", "Pháp luật"),
+        # ("http://www.nhandan.com.vn/vanhoa/du_lich", "Du lịch"),
+        # ("http://www.nhandan.com.vn/xahoi/bhxh-va-cuoc-song", "BHXH và cuộc sống"),
+        # ("http://www.nhandan.com.vn/xahoi/giao-thong", "Giao thông"),
+        # ("http://www.nhandan.com.vn/congnghe/vien-thong", "Viễn thông"),
+        # ("http://www.nhandan.com.vn/thethao", "Thể thao")
     ]
 
     def start_requests(self):
