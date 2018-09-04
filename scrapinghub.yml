@@ -1,7 +1,7 @@
 projects:
-  default: 342500
+  default: 342468
 stacks:
   default: scrapy:1.5-py3
 apikey:
-  1faee27516b347c68d62c1ccdb87de48
+  47de6266f23248239f64a26eeed07883
 requirements_file: requirements.txt

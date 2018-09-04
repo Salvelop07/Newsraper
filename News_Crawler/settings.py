@@ -99,8 +99,9 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
+	"News_Crawler.pipelines.ValidItemPipeline": 100,
     "News_Crawler.pipelines.CleanItemPipeline": 200,
-    # "News_Crawler.pipelines.TransformItemPipeLine": 250,
+    # "News_Crawler.pipelines.TransformItemPipeline": 250,
     "News_Crawler.pipelines.SaveFilePipeline": 300,
 }
 

@@ -7,6 +7,7 @@
 
 from News_Crawler import utils
 import os, math, re
+from scrapy.exceptions import DropItem
 
 
 class SaveFilePipeline(object):
@@ -82,10 +83,34 @@ class CleanItemPipeline(object):
         return item
 
 
-class TransformItemPipeLine(object):
+class TransformItemPipeline(object):
 
     def process_item(self, item, spider):
         # time_str = '_'.join(item["time"].split(", ")[1:])
         # item["time"] = time_str
 
         return item
+
+
+class ValidItemPipeline(object):
+
+    def process_item(self, item, spider):
+        is_valid = False
+
+        category = item.get("category")
+        title = item.get("title")
+        intro = item.get("intro")
+        content = item.get("content")
+
+        if category and len(category) > 0:
+            for field in (title, intro, content):
+                if field and len(field) > 0:
+                    is_valid = True
+                    break
+
+        if is_valid:
+            return item
+        else:
+            raise DropItem("Item dropped because is not valid : ", item)
+
+
