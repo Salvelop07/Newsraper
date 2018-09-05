@@ -20,14 +20,10 @@ class VNExpressNewsSpider(NewsSpider):
         # ("https://giaitri.vnexpress.net/tin-tuc/thoi-trang", "Thời trang"),
         # ("https://doisong.vnexpress.net/tin-tuc/nha", "Nhà"),
         # ("https://dulich.vnexpress.net", "Du lịch"),
-        ("https://thethao.vnexpress.net", "Thể thao"),
-        
+        # ("https://thethao.vnexpress.net", "Thể thao"),
         # ("https://kinhdoanh.vnexpress.net/tin-tuc/chung-khoan", "Chứng khoán"),
         
-        
-        # ("https://vnexpress.net/tin-tuc/giao-duc", "Giáo dục"),
-        
-        
+        ("https://vnexpress.net/tin-tuc/giao-duc", "Giáo dục"),
         # ("https://sohoa.vnexpress.net/tin-tuc/dien-tu-gia-dung", "Điện tử gia dụng")
     ]
 
