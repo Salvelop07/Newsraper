@@ -29,8 +29,7 @@ class VNExpressNewsSpider(NewsSpider):
         meta = dict(response.meta)
 
         # Navigate to article
-        article_urls = response.xpath(
-            "//div[@id='listcheckepl']/div[@data-boxtype='timelineposition']/a/@href").extract()
+        article_urls = response.css("div#listcheckepl > div > a::attr(href)").extract()
 
         self.logger.info("Parse url {}, Num Article urls : {}".format(response.url, len(article_urls)))
         for article_url in article_urls:
