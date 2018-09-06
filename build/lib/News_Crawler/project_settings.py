@@ -1,7 +1,8 @@
 CRAWL_LIMIT = {
     "NhanDan": 20,
     "VNExpress": 3,
-    "default_crawl_limit": 300
+    "VNnet": 5,
+    "default_crawl_limit": 500
 }
 
 # file_chunk_size = 1000
