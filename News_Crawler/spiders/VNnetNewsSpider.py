@@ -9,10 +9,10 @@ import json
 class VNExpressNewsSpider(NewsSpider):
     name = "VNnet"
     allowed_domains = ["vietnamnet.vn"]
-    # start_urls = ["https://vnexpress.net"]
 
     category_list = [
-        ("Giáo dục", "giao-duc")
+        # ("Giáo dục", "giao-duc")
+        ("Giao thông", "thoi-su-an-toan-giao-thong")
     ]
 
     def start_requests(self):

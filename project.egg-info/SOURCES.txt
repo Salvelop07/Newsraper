@@ -7,6 +7,7 @@ News_Crawler/pipelines.py
 News_Crawler/project_settings.py
 News_Crawler/settings.py
 News_Crawler/utils.py
+News_Crawler/spiders/DanTriNewsSpider.py
 News_Crawler/spiders/NewsSpider.py
 News_Crawler/spiders/NhanDanNewsSpider.py
 News_Crawler/spiders/VNExpressNewsSpider.py

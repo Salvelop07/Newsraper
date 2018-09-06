@@ -102,7 +102,7 @@ ITEM_PIPELINES = {
 	"News_Crawler.pipelines.ValidItemPipeline": 100,
     "News_Crawler.pipelines.CleanItemPipeline": 200,
     # "News_Crawler.pipelines.TransformItemPipeline": 250,
-    "News_Crawler.pipelines.SaveFilePipeline": 300,
+    # "News_Crawler.pipelines.SaveFilePipeline": 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
