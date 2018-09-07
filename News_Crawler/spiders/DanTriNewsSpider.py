@@ -11,7 +11,9 @@ class VNExpressNewsSpider(NewsSpider):
     base_url = "https://dantri.com.vn"
 
     url_category_list = [
-        ("https://dantri.com.vn/giai-tri/thoi-trang", "Thời trang")
+        # ("https://dantri.com.vn/giai-tri/thoi-trang", "Thời trang"),
+        # ("https://dantri.com.vn/the-thao", "Thể thao"),
+        ("https://dantri.com.vn/xa-hoi/giao-thong", "Giao thông")
     ]
 
     def start_requests(self):
