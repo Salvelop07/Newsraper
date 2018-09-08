@@ -3,9 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="142f6d65-4776-4131-96c2-c7bdfd6a756d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Archive/DanTri/Thời trang/.~lock.DanTri_Thời trang_07-09-2018_00-39-53_24articles.csv#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Archive/VNnet/Giáo dục/VNnet_Giáo dục_06-09-2018_17-25-06_25articles.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Archive/VNnet/VNnet_Giao thông_966.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/News_Crawler/spiders/DanTriNewsSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/News_Crawler/spiders/DanTriNewsSpider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/News_Crawler/spiders/NhanDanNewsSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/News_Crawler/spiders/NhanDanNewsSpider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/News_Crawler/spiders/VNnetNewsSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/News_Crawler/spiders/VNnetNewsSpider.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/lib/News_Crawler/spiders/DanTriNewsSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/News_Crawler/spiders/DanTriNewsSpider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/News_Crawler/spiders/NhanDanNewsSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/News_Crawler/spiders/NhanDanNewsSpider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/News_Crawler/spiders/VNnetNewsSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/News_Crawler/spiders/VNnetNewsSpider.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,18 +22,18 @@
     <session id="-1142580140">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="19" />
+          <entry key="project.closed" value="20" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.12" value="3" />
-          <entry key="project.open.time.13" value="3" />
+          <entry key="project.open.time.13" value="4" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.22" value="2" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.48" value="1" />
           <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="19" />
+          <entry key="project.opened" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -73,7 +78,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/News_Crawler/project_settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
+            <state relative-caret-position="95">
               <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
             </state>
           </provider>
@@ -100,8 +105,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/News_Crawler/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="52" selection-start-line="52" selection-end-line="52" />
+            <state relative-caret-position="190">
+              <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -112,7 +117,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/News_Crawler/pipelines.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1577">
+            <state relative-caret-position="1558">
               <caret line="84" selection-start-line="84" selection-end-line="84" />
               <folding>
                 <element signature="e#194#224#0" expanded="true" />
@@ -138,12 +143,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/News_Crawler/spiders/NhanDanNewsSpider.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1368">
+            <state relative-caret-position="1425">
               <caret line="78" column="49" selection-start-line="78" selection-start-column="49" selection-end-line="78" selection-end-column="49" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
-                <marker date="1536133011165" expanded="true" signature="173:178" ph="..." />
-                <marker date="1536133011165" expanded="true" signature="938:943" ph="..." />
+                <marker date="1536313010072" expanded="true" signature="173:178" ph="..." />
+                <marker date="1536313010072" expanded="true" signature="938:943" ph="..." />
               </folding>
             </state>
           </provider>
@@ -193,6 +198,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Course" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -215,7 +221,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Course" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -368,7 +373,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/News_Crawler/project_settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
+        <state relative-caret-position="95">
           <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
         </state>
       </provider>
@@ -389,7 +394,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/News_Crawler/pipelines.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1577">
+        <state relative-caret-position="1558">
           <caret line="84" selection-start-line="84" selection-end-line="84" />
           <folding>
             <element signature="e#194#224#0" expanded="true" />
@@ -411,20 +416,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/News_Crawler/spiders/NhanDanNewsSpider.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1368">
+        <state relative-caret-position="1425">
           <caret line="78" column="49" selection-start-line="78" selection-start-column="49" selection-end-line="78" selection-end-column="49" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1536133011165" expanded="true" signature="173:178" ph="..." />
-            <marker date="1536133011165" expanded="true" signature="938:943" ph="..." />
+            <marker date="1536313010072" expanded="true" signature="173:178" ph="..." />
+            <marker date="1536313010072" expanded="true" signature="938:943" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/News_Crawler/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        <state relative-caret-position="190">
+          <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

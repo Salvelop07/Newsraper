@@ -5,7 +5,7 @@ from News_Crawler.items import Article
 from News_Crawler import utils
 
 
-class VNExpressNewsSpider(NewsSpider):
+class DanTriNewsSpider(NewsSpider):
     name = "DanTri"
     allowed_domains = ["dantri.com.vn"]
     base_url = "https://dantri.com.vn"
@@ -13,7 +13,13 @@ class VNExpressNewsSpider(NewsSpider):
     url_category_list = [
         # ("https://dantri.com.vn/giai-tri/thoi-trang", "Thời trang"),
         # ("https://dantri.com.vn/the-thao", "Thể thao"),
-        ("https://dantri.com.vn/xa-hoi/giao-thong", "Giao thông")
+        # ("https://dantri.com.vn/xa-hoi/giao-thong", "Giao thông"),
+        # ("https://dantri.com.vn/giao-duc-khuyen-hoc", "Giáo dục"),
+        ("https://dantri.com.vn/kinh-doanh/nha-dat", "Bất động sản"),
+        # ("https://dantri.com.vn/kinh-doanh/tai-chinh-dau-tu", "Tài chính"),
+        # ("https://dantri.com.vn/phap-luat", "Pháp luật"),
+        # ("https://dantri.com.vn/suc-khoe/lam-dep", "Làm đẹp"),
+        # ("https://dulich.dantri.com.vn/du-lich/vong-quay-du-lich", "")
     ]
 
     def start_requests(self):

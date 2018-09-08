@@ -6,13 +6,20 @@ from News_Crawler import utils
 import json
 
 
-class VNExpressNewsSpider(NewsSpider):
+class VNnetNewsSpider(NewsSpider):
     name = "VNnet"
     allowed_domains = ["vietnamnet.vn"]
 
     category_list = [
-        # ("Giáo dục", "giao-duc")
-        ("Giao thông", "thoi-su-an-toan-giao-thong")
+        # ("Giáo dục", "giao-duc"),
+        # ("Giao thông", "thoi-su-an-toan-giao-thong"),
+        # ("Thời trang", "giai-tri-thoi-trang"),
+        # ("Bảo hiểm", "thoi-su-bhxh-bhyt"),
+        ("Tài chính", "kinh-doanh-tai-chinh"),
+        # ("Mẹ và bé", "doi-song-me-va-be"),
+        # ("Du lịch", "doi-song-du-lich"),
+        # ("Ẩm thực", "doi-song-am-thuc"),
+        # ("Pháp luật", "phap-luat")
     ]
 
     def start_requests(self):

@@ -26,6 +26,7 @@ class VNExpressNewsSpider(NewsSpider):
         # ("https://vnexpress.net/tin-tuc/giao-duc", "Giáo dục"),
         # ("https://vnexpress.net/tin-tuc/phap-luat", "Pháp luật"),
         # ("https://sohoa.vnexpress.net/tin-tuc/dien-tu-gia-dung", "Điện tử gia dụng")
+        ("https://sohoa.vnexpress.net/tin-tuc/doi-song-so", "Đời sống số")
     ]
 
     def start_requests(self):

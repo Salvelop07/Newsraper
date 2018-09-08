@@ -17,7 +17,7 @@ class NhanDanNewsSpider(NewsSpider):
         # ("http://www.nhandan.com.vn/vanhoa/du_lich", "Du lịch"),
         # ("http://www.nhandan.com.vn/xahoi/giao-thong", "Giao thông"),
         
-        ("http://www.nhandan.com.vn/xahoi/bhxh-va-cuoc-song", "BHXH và cuộc sống"),
+        # ("http://www.nhandan.com.vn/xahoi/bhxh-va-cuoc-song", "BHXH và cuộc sống"),
         
         # ("http://www.nhandan.com.vn/congnghe/vien-thong", "Viễn thông"),
         # ("http://www.nhandan.com.vn/thethao", "Thể thao")
