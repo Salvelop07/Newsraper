@@ -15,8 +15,8 @@ class DanTriNewsSpider(NewsSpider):
         # ("https://dantri.com.vn/the-thao", "Thể thao"),
         # ("https://dantri.com.vn/xa-hoi/giao-thong", "Giao thông"),
         # ("https://dantri.com.vn/giao-duc-khuyen-hoc", "Giáo dục"),
-        ("https://dantri.com.vn/kinh-doanh/nha-dat", "Bất động sản"),
-        # ("https://dantri.com.vn/kinh-doanh/tai-chinh-dau-tu", "Tài chính"),
+        # ("https://dantri.com.vn/kinh-doanh/nha-dat", "Bất động sản"),
+        ("https://dantri.com.vn/kinh-doanh/tai-chinh-dau-tu", "Tài chính"),
         # ("https://dantri.com.vn/phap-luat", "Pháp luật"),
         # ("https://dantri.com.vn/suc-khoe/lam-dep", "Làm đẹp"),
         # ("https://dulich.dantri.com.vn/du-lich/vong-quay-du-lich", "")

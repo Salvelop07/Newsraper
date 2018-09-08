@@ -15,8 +15,8 @@ class VNnetNewsSpider(NewsSpider):
         # ("Giao thông", "thoi-su-an-toan-giao-thong"),
         # ("Thời trang", "giai-tri-thoi-trang"),
         # ("Bảo hiểm", "thoi-su-bhxh-bhyt"),
-        ("Tài chính", "kinh-doanh-tai-chinh"),
-        # ("Mẹ và bé", "doi-song-me-va-be"),
+        # ("Tài chính", "kinh-doanh-tai-chinh"),
+        ("Mẹ và bé", "doi-song-me-va-be"),
         # ("Du lịch", "doi-song-du-lich"),
         # ("Ẩm thực", "doi-song-am-thuc"),
         # ("Pháp luật", "phap-luat")
