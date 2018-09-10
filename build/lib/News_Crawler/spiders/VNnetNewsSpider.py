@@ -17,8 +17,8 @@ class VNnetNewsSpider(NewsSpider):
         # ("Bảo hiểm", "thoi-su-bhxh-bhyt"),
         # ("Tài chính", "kinh-doanh-tai-chinh"),
         # ("Mẹ và bé", "doi-song-me-va-be"),
-        ("Du lịch", "doi-song-du-lich"),
-        # ("Ẩm thực", "doi-song-am-thuc"),
+        # ("Du lịch", "doi-song-du-lich"),
+        ("Ẩm thực", "doi-song-am-thuc"),
         # ("Pháp luật", "phap-luat")
     ]
 
