@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="142f6d65-4776-4131-96c2-c7bdfd6a756d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Archive/VNnet/Giáo dục/VNnet_Giáo dục_06-09-2018_17-25-06_25articles.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Archive/VNnet/VNnet_Giao thông_966.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/News_Crawler/spiders/DanTriNewsSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/News_Crawler/spiders/DanTriNewsSpider.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/News_Crawler/spiders/NhanDanNewsSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/News_Crawler/spiders/NhanDanNewsSpider.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/News_Crawler/spiders/VNnetNewsSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/News_Crawler/spiders/VNnetNewsSpider.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/lib/News_Crawler/spiders/DanTriNewsSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/News_Crawler/spiders/DanTriNewsSpider.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/lib/News_Crawler/spiders/NhanDanNewsSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/News_Crawler/spiders/NhanDanNewsSpider.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/lib/News_Crawler/spiders/VNnetNewsSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/News_Crawler/spiders/VNnetNewsSpider.py" afterDir="false" />
-    </list>
+    <list default="true" id="142f6d65-4776-4131-96c2-c7bdfd6a756d" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,18 +12,19 @@
     <session id="-1142580140">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="20" />
+          <entry key="project.closed" value="21" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.12" value="3" />
           <entry key="project.open.time.13" value="4" />
           <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.22" value="2" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.48" value="1" />
           <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="20" />
+          <entry key="project.opened" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -105,8 +96,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/News_Crawler/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
+            <state relative-caret-position="95">
+              <caret line="44" column="9" lean-forward="true" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -147,8 +138,8 @@
               <caret line="78" column="49" selection-start-line="78" selection-start-column="49" selection-end-line="78" selection-end-column="49" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
-                <marker date="1536313010072" expanded="true" signature="173:178" ph="..." />
-                <marker date="1536313010072" expanded="true" signature="938:943" ph="..." />
+                <marker date="1536383345624" expanded="true" signature="173:178" ph="..." />
+                <marker date="1536383345624" expanded="true" signature="940:945" ph="..." />
               </folding>
             </state>
           </provider>
@@ -306,6 +297,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-11" width="1368" height="717" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17721519" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -420,16 +412,14 @@
           <caret line="78" column="49" selection-start-line="78" selection-start-column="49" selection-end-line="78" selection-end-column="49" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1536313010072" expanded="true" signature="173:178" ph="..." />
-            <marker date="1536313010072" expanded="true" signature="938:943" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/News_Crawler/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
+        <state relative-caret-position="95">
+          <caret line="44" column="9" lean-forward="true" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
