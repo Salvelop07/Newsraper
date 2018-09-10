@@ -18,7 +18,7 @@ class DanTriNewsSpider(NewsSpider):
         # ("https://dantri.com.vn/kinh-doanh/nha-dat", "Bất động sản"),
         # ("https://dantri.com.vn/kinh-doanh/tai-chinh-dau-tu", "Tài chính"),
         # ("https://dantri.com.vn/phap-luat", "Pháp luật"),
-        ("https://dantri.com.vn/suc-khoe/lam-dep", "Làm đẹp"),
+        # ("https://dantri.com.vn/suc-khoe/lam-dep", "Làm đẹp"),
         # ("https://dulich.dantri.com.vn/du-lich/vong-quay-du-lich", "")
     ]
 

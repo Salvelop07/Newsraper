@@ -18,8 +18,8 @@ class VNnetNewsSpider(NewsSpider):
         # ("Tài chính", "kinh-doanh-tai-chinh"),
         # ("Mẹ và bé", "doi-song-me-va-be"),
         # ("Du lịch", "doi-song-du-lich"),
-        ("Ẩm thực", "doi-song-am-thuc"),
-        # ("Pháp luật", "phap-luat")
+        # ("Ẩm thực", "doi-song-am-thuc"),
+        ("Pháp luật", "phap-luat")
     ]
 
     def start_requests(self):
