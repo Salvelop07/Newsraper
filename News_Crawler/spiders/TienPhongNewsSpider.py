@@ -11,10 +11,10 @@ class TienPhongNewsSpider(NewsSpider):
 
     url_category_list = [
         # ("https://www.tienphong.vn/kinh-te-thi-truong/", "Tài chính"),
-        ("https://www.tienphong.vn/du-lich/", "Du lịch"),
+        # ("https://www.tienphong.vn/du-lich/", "Du lịch"),
+        ("https://www.tienphong.vn/nha-dep-phong-thuy/", "Nhà đẹp"),
         # ("https://www.tienphong.vn/kinh-te-chung-khoan/", "Chứng khoán"),
         # ("https://www.tienphong.vn/thi-truong/", "Bất động sản"),
-        # ("https://www.tienphong.vn/nha-dep-phong-thuy/", "Nhà đẹp"),
         # ("https://www.tienphong.vn/phap-luat/", "Pháp luật"),
         # ("https://www.tienphong.vn/the-thao/", "Thể thao"),
         # ("https://www.tienphong.vn/xe/", "Xe"),
