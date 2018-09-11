@@ -78,13 +78,13 @@ DOWNLOADER_MIDDLEWARES = {
 # http://username:password@host2:port
 # http://host3:port
 # ...
-# PROXY_LIST = "./News_Crawler/Proxy/proxy_list.txt"
+PROXY_LIST = "./News_Crawler/Proxy/proxy_list.txt"
 
 # Proxy mode
 # 0 = Every requests have different proxy
 # 1 = Take only one proxy from the list and assign it to every requests
 # 2 = Put a custom proxy to use in the settings
-# PROXY_MODE = 0
+PROXY_MODE = 0
 
 # If proxy mode is 2 uncomment this sentence :
 #CUSTOM_PROXY = "http://host1:port"

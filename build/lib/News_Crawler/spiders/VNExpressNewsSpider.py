@@ -41,7 +41,7 @@ class VNExpressNewsSpider(NewsSpider):
             yield Request(category_url, self.parse_category, meta=meta, errback=self.errback)
 
     def parse_category(self, response):
-        meta = dict(response.meta)
+        meta = response.meta
 
         # Navigate to article
         article_urls = []

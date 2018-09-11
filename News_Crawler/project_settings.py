@@ -3,6 +3,7 @@ CRAWL_LIMIT = {
     "VNExpress": 3,
     "VNnet": 5,
     "DanTri": 4,
+    "TienPhong": 2,
     "default_crawl_limit": 1000
 }
 
