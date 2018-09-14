@@ -18,9 +18,9 @@ class TienPhongNewsSpider(NewsSpider):
         # ("https://www.tienphong.vn/thi-truong/", "Bất động sản"),
         # ("https://www.tienphong.vn/phap-luat/", "Pháp luật"),
         # ("https://www.tienphong.vn/giao-duc/", "Giáo dục"),
-        ("https://www.tienphong.vn/the-thao/", "Thể thao"),
+        # ("https://www.tienphong.vn/the-thao/", "Thể thao"),
         # ("https://www.tienphong.vn/xe/", "Xe"),
-        # ("https://www.tienphong.vn/cong-nghe-khoa-hoc/", "Công nghệ")
+        ("https://www.tienphong.vn/cong-nghe-khoa-hoc/", "Công nghệ")
     ]
 
     def start_requests(self):
