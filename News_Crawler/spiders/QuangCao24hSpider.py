@@ -12,8 +12,8 @@ class QuangCao24hSpider(NewsSpider):
     base_url = "http://www.quangcao24h.com.vn"
 
     category_list = [
-        # ("Địa điểm kinh doanh", 48),
-        ("Đồ dùng nội ngoại thất", 14)
+        ("Địa điểm kinh doanh", 48),
+        # ("Đồ dùng nội ngoại thất", 14)
     ]
 
     def start_requests(self):
