@@ -10,6 +10,7 @@ News_Crawler/utils.py
 News_Crawler/spiders/DanTriNewsSpider.py
 News_Crawler/spiders/NewsSpider.py
 News_Crawler/spiders/NhanDanNewsSpider.py
+News_Crawler/spiders/QuangCao24hSpider.py
 News_Crawler/spiders/TienPhongNewsSpider.py
 News_Crawler/spiders/VNExpressNewsSpider.py
 News_Crawler/spiders/VNnetNewsSpider.py

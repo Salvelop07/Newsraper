@@ -4,7 +4,8 @@ CRAWL_LIMIT = {
     "VNnet": 5,
     "DanTri": 4,
     "TienPhong": 2,
-    "default_crawl_limit": 1000
+    "QuangCao24h": 2,
+    "default_crawl_limit": 200
 }
 
 # file_chunk_size = 1000
