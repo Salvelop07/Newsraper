@@ -8,13 +8,12 @@ from News_Crawler import utils
 class VNExpressNewsSpider(NewsSpider):
     name = "VNExpress"
     allowed_domains = ["vnexpress.net"]
-    # start_urls = ["https://vnexpress.net"]
 
     url_category_list = [
         # ("https://vnexpress.net/tin-tuc/oto-xe-may", "Xe"),
         # ("https://suckhoe.vnexpress.net/tin-tuc/dinh-duong", "Dinh dưỡng"),
         # ("https://vnexpress.net/tin-tuc/thoi-su/giao-thong", "Giao thông"),
-        # ("https://suckhoe.vnexpress.net/tin-tuc/suc-khoe", "Sức khỏe"),
+        ("https://suckhoe.vnexpress.net/tin-tuc/suc-khoe", "Sức khỏe"),
         # ("https://kinhdoanh.vnexpress.net/tin-tuc/bat-dong-san", "Bất động sản"),
         # ("https://giaitri.vnexpress.net/tin-tuc/lam-dep", "Làm đẹp"),
         # ("https://giaitri.vnexpress.net/tin-tuc/thoi-trang", "Thời trang"),
@@ -22,7 +21,6 @@ class VNExpressNewsSpider(NewsSpider):
         # ("https://dulich.vnexpress.net", "Du lịch"),
         # ("https://thethao.vnexpress.net", "Thể thao"),
         # ("https://kinhdoanh.vnexpress.net/tin-tuc/chung-khoan", "Chứng khoán"),
-        
         # ("https://vnexpress.net/tin-tuc/giao-duc", "Giáo dục"),
         # ("https://vnexpress.net/tin-tuc/phap-luat", "Pháp luật"),
         # ("https://sohoa.vnexpress.net/tin-tuc/dien-tu-gia-dung", "Điện tử gia dụng")

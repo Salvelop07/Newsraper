@@ -12,7 +12,8 @@ class NLDNewsSpider(NewsSpider):
 
     url_category_list = [
         # ("https://nld.com.vn/hang-hang-khong", "Hãng hàng không"),
-        ("https://nld.com.vn/giao-duc-khoa-hoc", "Giáo dục")
+        # ("https://nld.com.vn/giao-duc-khoa-hoc", "Giáo dục"),
+        # ("https://nld.com.vn/cong-doan/viec-lam", "Việc làm")
     ]
 
     def start_requests(self):
