@@ -6,6 +6,7 @@ CRAWL_LIMIT = {
     "TienPhong": 2,
     "QuangCao24h": 2,
     "NLD": 2,
+    "ThanhNien": 2,
     "default_crawl_limit": 500
 }
 
