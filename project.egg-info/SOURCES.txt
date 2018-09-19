@@ -12,6 +12,7 @@ News_Crawler/spiders/NLDNewsSpider.py
 News_Crawler/spiders/NewsSpider.py
 News_Crawler/spiders/NhanDanNewsSpider.py
 News_Crawler/spiders/QuangCao24hSpider.py
+News_Crawler/spiders/RongBayNewsSpider.py
 News_Crawler/spiders/TapChiHangKhongNewsSpider.py
 News_Crawler/spiders/ThanhNienNewsSpider.py
 News_Crawler/spiders/TienPhongNewsSpider.py

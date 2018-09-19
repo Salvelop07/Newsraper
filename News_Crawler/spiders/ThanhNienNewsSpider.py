@@ -12,7 +12,7 @@ class ThanhNienNewsSpider(NewsSpider):
 
     url_category_list = [
         # ("https://game.thanhnien.vn", "tin-tuc", "Game"),
-        ("https://thanhnien.vn/doi-song", "am-thuc", "Ẩm thực")
+        # ("https://thanhnien.vn/doi-song", "am-thuc", "Ẩm thực")
     ]
 
     def start_requests(self):

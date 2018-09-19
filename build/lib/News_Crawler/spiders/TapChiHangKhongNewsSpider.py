@@ -10,8 +10,8 @@ class TapChiHangKhongNewsSpider(NewsSpider):
     allowed_domains = ["tapchihangkhong.com"]
 
     url_category_list = [
-        ("https://www.tapchihangkhong.com/quoc-noi", "Hàng không"),
-        ("https://www.tapchihangkhong.com/quoc-te", "Hàng không"),
+        # ("https://www.tapchihangkhong.com/quoc-noi", "Hàng không"),
+        # ("https://www.tapchihangkhong.com/quoc-te", "Hàng không"),
     ]
 
     def start_requests(self):

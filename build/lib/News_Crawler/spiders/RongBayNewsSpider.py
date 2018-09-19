@@ -5,13 +5,17 @@ from News_Crawler.items import Article
 from News_Crawler import utils
 
 
-class TapChiHangKhongNewsSpider(NewsSpider):
-    name = "TapChiHangKhong"
-    allowed_domains = ["tapchihangkhong.com"]
+class RongBayNewsSpider(NewsSpider):
+    name = "RongBay"
+    allowed_domains = ["rongbay.com"]
+    # base_url = "https://rongbay.com"
 
     url_category_list = [
-        # ("https://www.tapchihangkhong.com/quoc-noi", "Hàng không"),
-        # ("https://www.tapchihangkhong.com/quoc-te", "Hàng không"),
+        ("https://rongbay.com/Ha-Noi/Dien-lanh-Dien-may-Gia-dung-c280", "QC - Điện lạnh, điện máy gia dụng"),
+        # ("https://rongbay.com/Ha-Noi/Cho-Sim-c278.html", "QC - Sim"),
+        # ("https://rongbay.com/Ha-Noi/Do-noi-that-c291.html", "QC - Đồ nội thất"),
+        # ("https://rongbay.com/Ha-Noi/Thoi-trang-c304.html", "QC - Thời trang"),
+        # ("https://rongbay.com/Ha-Noi/My-pham-nu-c298.html", "QC - Mỹ phẩm"),
     ]
 
     def start_requests(self):
@@ -19,7 +23,7 @@ class TapChiHangKhongNewsSpider(NewsSpider):
         for category_url, category in self.url_category_list:
             meta = {
                 "category": category,
-                "category_url_fmt": category_url + "/page/{}/",
+                "category_url_fmt": category_url + "-trang{}.html",
                 "page_idx": page_idx
             }
             category_url = meta["category_url_fmt"].format(meta["page_idx"])
@@ -29,8 +33,7 @@ class TapChiHangKhongNewsSpider(NewsSpider):
         meta = dict(response.meta)
 
         # Navigate to article
-        article_urls = response.css(
-            "#main-content article.item-list .post-box-title a::attr(href)").extract()
+        article_urls = response.css(".NewsList a.newsTitle::attr(href)").extract()
 
         self.logger.info("Parse url {}, Num Article urls : {}".format(response.url, len(article_urls)))
         for article_url in article_urls:
@@ -44,20 +47,20 @@ class TapChiHangKhongNewsSpider(NewsSpider):
             yield Request(next_page, self.parse_category, meta=meta, errback=self.errback)
 
     def parse_article(self, response):
-        article_div = response.css("#main-content article")
 
         url = response.url
         lang = self.lang
-        title = article_div.css(".post-title ::text").extract_first()
+        title = response.css(".header .title::text").extract_first()
         category = response.meta["category"]
-        intro = ''
-        content = ' '.join(article_div.xpath(
-            ".//div[@class='entry']//text()[not(ancestor::script)]").extract())
-        time = article_div.css(".updated ::text").extract_first()
+        intro = ' '
+        content = ' '.join(response.xpath("//div[@id='NewsContent']//text()").extract())
+        time = response.css(
+            ".header .info_item_popup .note_gera:first-child span::text").extract_first()
+
 
         # Transform time to uniform format
         if time is not None:
-            time = self.transform_time_fmt(time, src_fmt="%Y-%m-%d")
+            time = self.transform_time_fmt(time, src_fmt="%d/%m/%Y")
 
         self.article_scraped_count += 1
         if self.article_scraped_count % 100 == 0:
