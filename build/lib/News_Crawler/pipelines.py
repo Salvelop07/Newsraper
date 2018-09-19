@@ -75,7 +75,8 @@ class CleanItemPipeline(object):
 
         # Replace special character
         item["title"] = self.re.sub('', item["title"].strip())
-        item["category"] = self.re.sub('', item["category"].strip())
+        if not item["category"].startswith("QC"):
+            item["category"] = self.re.sub('', item["category"].strip())
 
         item["intro"] = re.sub("\s+", ' ', item["intro"]).strip()
         item["content"] = re.sub("\s+", ' ', item["content"]).strip()

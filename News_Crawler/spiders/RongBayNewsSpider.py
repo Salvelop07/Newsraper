@@ -11,11 +11,11 @@ class RongBayNewsSpider(NewsSpider):
     # base_url = "https://rongbay.com"
 
     url_category_list = [
-        ("https://rongbay.com/Ha-Noi/Dien-lanh-Dien-may-Gia-dung-c280", "QC - Điện lạnh, điện máy gia dụng"),
-        # ("https://rongbay.com/Ha-Noi/Cho-Sim-c278.html", "QC - Sim"),
-        # ("https://rongbay.com/Ha-Noi/Do-noi-that-c291.html", "QC - Đồ nội thất"),
-        # ("https://rongbay.com/Ha-Noi/Thoi-trang-c304.html", "QC - Thời trang"),
-        # ("https://rongbay.com/Ha-Noi/My-pham-nu-c298.html", "QC - Mỹ phẩm"),
+        # ("https://rongbay.com/Ha-Noi/Dien-lanh-Dien-may-Gia-dung-c280", "QC - Điện lạnh, điện máy gia dụng"),
+        # ("https://rongbay.com/Ha-Noi/Cho-Sim-c278", "QC - Sim"),
+        ("https://rongbay.com/Ha-Noi/Do-noi-that-c291", "QC - Đồ nội thất"),
+        # ("https://rongbay.com/Ha-Noi/Thoi-trang-c304", "QC - Thời trang"),
+        # ("https://rongbay.com/Ha-Noi/My-pham-nu-c298", "QC - Mỹ phẩm"),
     ]
 
     def start_requests(self):

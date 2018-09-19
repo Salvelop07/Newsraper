@@ -2,11 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="142f6d65-4776-4131-96c2-c7bdfd6a756d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/News_Crawler/Proxy/proxies.csv" beforeDir="false" afterPath="$PROJECT_DIR$/News_Crawler/Proxy/proxies.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/News_Crawler/Proxy/proxy_list.txt" beforeDir="false" afterPath="$PROJECT_DIR$/News_Crawler/Proxy/proxy_list.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/News_Crawler/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/News_Crawler/pipelines.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/News_Crawler/project_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/News_Crawler/project_settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/News_Crawler/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/News_Crawler/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/News_Crawler/spiders/ThanhNienNewsSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/News_Crawler/spiders/ThanhNienNewsSpider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/News_Crawler/spiders/QuangCao24hSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/News_Crawler/spiders/QuangCao24hSpider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/News_Crawler/spiders/RongBayNewsSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/News_Crawler/spiders/RongBayNewsSpider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/News_Crawler/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/News_Crawler/pipelines.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/News_Crawler/project_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/News_Crawler/project_settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/News_Crawler/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/News_Crawler/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/News_Crawler/spiders/QuangCao24hSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/News_Crawler/spiders/QuangCao24hSpider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/News_Crawler/spiders/RongBayNewsSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/News_Crawler/spiders/RongBayNewsSpider.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,7 +26,7 @@
     <session id="-1142580140">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="23" />
+          <entry key="project.closed" value="24" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.12" value="4" />
@@ -26,12 +34,13 @@
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.16" value="1" />
+          <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.22" value="2" />
           <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.48" value="1" />
           <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="23" />
+          <entry key="project.opened" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -107,7 +116,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/News_Crawler/spiders/NLDNewsSpider.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
+            <state relative-caret-position="190">
               <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
@@ -151,8 +160,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/News_Crawler/crawl_proxy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="31" column="18" lean-forward="true" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
+            <state relative-caret-position="405">
+              <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
             </state>
           </provider>
         </entry>
@@ -173,7 +182,7 @@
         <entry file="file://$PROJECT_DIR$/News_Crawler/pipelines.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1558">
-              <caret line="84" selection-start-line="84" selection-end-line="84" />
+              <caret line="85" selection-start-line="85" selection-end-line="85" />
               <folding>
                 <element signature="e#194#224#0" expanded="true" />
               </folding>
@@ -251,7 +260,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Course" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -274,6 +282,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Course" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -445,6 +454,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/News_Crawler/spiders/NLDNewsSpider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/News_Crawler/spiders/VNExpressNewsSpider.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -484,7 +503,7 @@
     <entry file="file://$PROJECT_DIR$/News_Crawler/pipelines.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1558">
-          <caret line="84" selection-start-line="84" selection-end-line="84" />
+          <caret line="85" selection-start-line="85" selection-end-line="85" />
           <folding>
             <element signature="e#194#224#0" expanded="true" />
           </folding>
@@ -511,20 +530,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/News_Crawler/spiders/NLDNewsSpider.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/News_Crawler/crawl_proxy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="31" column="18" lean-forward="true" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
+        <state relative-caret-position="405">
+          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
         </state>
       </provider>
     </entry>

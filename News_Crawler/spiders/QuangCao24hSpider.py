@@ -12,8 +12,13 @@ class QuangCao24hSpider(NewsSpider):
     base_url = "http://www.quangcao24h.com.vn"
 
     category_list = [
-        ("Địa điểm kinh doanh", 48),
+        # ("Địa điểm kinh doanh", 48),
         # ("Đồ dùng nội ngoại thất", 14)
+        # ("QC - Thời trang", 28),
+        # ("QC - Điện tử điện máy", "8-dien-tu-dien-may"),
+        # ("QC - Làm đẹp", "49-lam-dep"),
+        ("QC - Dịch vụ", "21-dich-vu"),
+        # ("QC - Hàng tiêu dùng", "43-hang-tieu-dung")
     ]
 
     def start_requests(self):
@@ -22,7 +27,8 @@ class QuangCao24hSpider(NewsSpider):
             meta = {
                 "category": category,
                 "category_id": category_id,
-                "category_url_fmt": "http://www.quangcao24h.com.vn/index_ajax.php?module_name=product_detail&action=viewlistAjax&category_id={}&provinces_id=&limit=&page={}",
+                # "category_url_fmt": "http://www.quangcao24h.com.vn/index_ajax.php?module_name=product_detail&action=viewlistAjax&category_id={}&provinces_id=&limit=&page={}",
+                "category_url_fmt": "http://www.quangcao24h.com.vn/tin-dang/ds/{}/{}",
                 "page_idx": page_idx
             }
             category_url = meta["category_url_fmt"].format(meta["category_id"], meta["page_idx"])
