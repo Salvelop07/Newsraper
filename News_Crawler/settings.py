@@ -26,7 +26,7 @@ NEWSPIDER_MODULE = 'News_Crawler.spiders'
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
-DEPTH_PRIORITY = -1
+# DEPTH_PRIORITY = -1
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -70,8 +70,8 @@ DEPTH_PRIORITY = -1
 # RETRY_HTTP_CODES = [500, 503, 504, 400, 403, 404, 408]
 
 DOWNLOADER_MIDDLEWARES = {
-    # 'scrapy.downloadermiddlewares.retry.RetryMiddleware': 90,
-    # 'scrapy_proxies.RandomProxy': 100,
+    'scrapy.downloadermiddlewares.retry.RetryMiddleware': 90,
+    'scrapy_proxies.RandomProxy': 100,
     "scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware": 110,
 }
 

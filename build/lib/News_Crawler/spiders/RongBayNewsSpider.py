@@ -13,8 +13,8 @@ class RongBayNewsSpider(NewsSpider):
     url_category_list = [
         # ("https://rongbay.com/Ha-Noi/Dien-lanh-Dien-may-Gia-dung-c280", "QC - Điện lạnh, điện máy gia dụng"),
         # ("https://rongbay.com/Ha-Noi/Cho-Sim-c278", "QC - Sim"),
-        ("https://rongbay.com/Ha-Noi/Do-noi-that-c291", "QC - Đồ nội thất"),
-        # ("https://rongbay.com/Ha-Noi/Thoi-trang-c304", "QC - Thời trang"),
+        # ("https://rongbay.com/Ha-Noi/Do-noi-that-c291", "QC - Đồ nội thất"),
+        ("https://rongbay.com/Ha-Noi/Thoi-trang-c304", "QC - Thời trang"),
         # ("https://rongbay.com/Ha-Noi/My-pham-nu-c298", "QC - Mỹ phẩm"),
     ]
 
@@ -53,7 +53,7 @@ class RongBayNewsSpider(NewsSpider):
         title = response.css(".header .title::text").extract_first()
         category = response.meta["category"]
         intro = ' '
-        content = ' '.join(response.xpath("//div[@id='NewsContent']//text()").extract())
+        content = ' '.join(response.xpath("//div[@id='NewsContent']//text()[not(ancestor::script)]").extract())
         time = response.css(
             ".header .info_item_popup .note_gera:first-child span::text").extract_first()
 

@@ -17,7 +17,7 @@ class QuangCao24hSpider(NewsSpider):
         # ("QC - Thời trang", 28),
         # ("QC - Điện tử điện máy", "8-dien-tu-dien-may"),
         # ("QC - Làm đẹp", "49-lam-dep"),
-        ("QC - Dịch vụ", "21-dich-vu"),
+        # ("QC - Dịch vụ", "21-dich-vu"),
         # ("QC - Hàng tiêu dùng", "43-hang-tieu-dung")
     ]
 
