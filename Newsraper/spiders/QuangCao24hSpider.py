@@ -1,8 +1,8 @@
 import scrapy
 from scrapy import Request
-from News_Crawler.spiders.NewsSpider import NewsSpider
-from News_Crawler.items import Article
-from News_Crawler import utils
+from Newsraper.spiders.NewsSpider import NewsSpider
+from Newsraper.items import Article
+from Newsraper import utils
 import json
 
 
@@ -34,7 +34,8 @@ class QuangCao24hSpider(NewsSpider):
                 "category_url_fmt": "http://www.quangcao24h.com.vn/tin-dang/ds/{}/{}",
                 "page_idx": page_idx
             }
-            category_url = meta["category_url_fmt"].format(meta["category_id"], meta["page_idx"])
+            category_url = meta["category_url_fmt"].format(
+                meta["category_id"], meta["page_idx"])
             yield Request(category_url, self.parse_category, meta=meta, errback=self.errback)
 
     def parse_category(self, response):
@@ -43,7 +44,8 @@ class QuangCao24hSpider(NewsSpider):
         articles_urls = response.css("li>div> a::attr(href)").extract()
 
         # Navigate to article
-        self.logger.info("Parse url {}, Num Article urls : {}".format(response.url, len(articles_urls)))
+        self.logger.info("Parse url {}, Num Article urls : {}".format(
+            response.url, len(articles_urls)))
         for article_url in articles_urls:
             article_url = self.base_url + article_url
 
@@ -53,7 +55,8 @@ class QuangCao24hSpider(NewsSpider):
         # Navigate to next page
         if meta["page_idx"] < self.page_per_category_limit and len(articles_urls) > 0:
             meta["page_idx"] += 1
-            next_page = meta["category_url_fmt"].format(meta["category_id"], meta["page_idx"])
+            next_page = meta["category_url_fmt"].format(
+                meta["category_id"], meta["page_idx"])
             yield Request(next_page, self.parse_category, meta=meta, errback=self.errback)
 
     def parse_article(self, response):
@@ -61,16 +64,19 @@ class QuangCao24hSpider(NewsSpider):
 
         url = response.url
         lang = self.lang
-        title = response.css(".postDetail>.detail_product .product_name::text").extract_first()
+        title = response.css(
+            ".postDetail>.detail_product .product_name::text").extract_first()
         category = meta["category"]
         intro = ""
-        content = ' '.join(response.css(".postDetail .full_description_inside ::text").extract())
+        content = ' '.join(response.css(
+            ".postDetail .full_description_inside ::text").extract())
         time = ""
 
         self.article_scraped_count += 1
         if self.article_scraped_count % 100 == 0:
-            self.logger.info("Spider {}: Crawl {} items".format(self.name, self.article_scraped_count))
-        
+            self.logger.info("Spider {}: Crawl {} items".format(
+                self.name, self.article_scraped_count))
+
         yield Article(
             url=url,
             lang=lang,

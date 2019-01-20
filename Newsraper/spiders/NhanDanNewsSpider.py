@@ -1,7 +1,7 @@
 import scrapy
 from scrapy import Request
-from News_Crawler.spiders.NewsSpider import NewsSpider
-from News_Crawler.items import Article
+from Newsraper.spiders.NewsSpider import NewsSpider
+from Newsraper.items import Article
 
 
 class NhanDanNewsSpider(NewsSpider):
@@ -16,9 +16,9 @@ class NhanDanNewsSpider(NewsSpider):
 
         # ("http://www.nhandan.com.vn/vanhoa/du_lich", "Du lịch"),
         # ("http://www.nhandan.com.vn/xahoi/giao-thong", "Giao thông"),
-        
+
         # ("http://www.nhandan.com.vn/xahoi/bhxh-va-cuoc-song", "BHXH và cuộc sống"),
-        
+
         # ("http://www.nhandan.com.vn/congnghe/vien-thong", "Viễn thông"),
         # ("http://www.nhandan.com.vn/thethao", "Thể thao")
     ]
@@ -59,7 +59,8 @@ class NhanDanNewsSpider(NewsSpider):
         meta = response.meta
 
         # Navigate to article
-        article_urls = response.css(".media-body a.pull-left::attr(href)").extract()
+        article_urls = response.css(
+            ".media-body a.pull-left::attr(href)").extract()
         for article_url in article_urls:
             article_url = response.urljoin(article_url)
             yield Request(article_url, self.parse_article, meta={"category": meta["category"]})
@@ -81,7 +82,8 @@ class NhanDanNewsSpider(NewsSpider):
         intro = table.css("div.ndcontent.ndb p ::text").extract_first()
         content = table.css("div[class=ndcontent] ::text").extract()
         content = ' '.join(content)
-        time = table.css("div.icon_date_top>div.pull-left::text").extract_first()
+        time = table.css(
+            "div.icon_date_top>div.pull-left::text").extract_first()
 
         # Transform time to uniform format
         if time is not None:
@@ -90,8 +92,9 @@ class NhanDanNewsSpider(NewsSpider):
 
         self.article_scraped_count += 1
         if self.article_scraped_count % 100 == 0:
-            self.logger.info("Spider {}: Crawl {} items".format(self.name, self.article_scraped_count))
-        
+            self.logger.info("Spider {}: Crawl {} items".format(
+                self.name, self.article_scraped_count))
+
         yield Article(
             url=url,
             lang=lang,

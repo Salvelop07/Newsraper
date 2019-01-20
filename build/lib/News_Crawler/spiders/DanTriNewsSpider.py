@@ -1,8 +1,8 @@
 import scrapy
 from scrapy import Request
-from News_Crawler.spiders.NewsSpider import NewsSpider
-from News_Crawler.items import Article
-from News_Crawler import utils
+from Newsraper.spiders.NewsSpider import NewsSpider
+from Newsraper.items import Article
+from Newsraper import utils
 
 
 class DanTriNewsSpider(NewsSpider):
@@ -37,9 +37,11 @@ class DanTriNewsSpider(NewsSpider):
         meta = dict(response.meta)
 
         # Navigate to article
-        article_urls = response.css("div#listcheckepl > div > a::attr(href)").extract()
+        article_urls = response.css(
+            "div#listcheckepl > div > a::attr(href)").extract()
 
-        self.logger.info("Parse url {}, Num Article urls : {}".format(response.url, len(article_urls)))
+        self.logger.info("Parse url {}, Num Article urls : {}".format(
+            response.url, len(article_urls)))
         for article_url in article_urls:
             article_url = self.base_url + article_url
             if utils.is_valid_url(article_url):
@@ -52,7 +54,8 @@ class DanTriNewsSpider(NewsSpider):
             yield Request(next_page, self.parse_category, meta=meta, errback=self.errback)
 
     def parse_article(self, response):
-        content_div = response.xpath("//div[@id='ctl00_IDContent_ctl00_divContent']")
+        content_div = response.xpath(
+            "//div[@id='ctl00_IDContent_ctl00_divContent']")
 
         url = response.url
         lang = self.lang
@@ -70,8 +73,9 @@ class DanTriNewsSpider(NewsSpider):
 
         self.article_scraped_count += 1
         if self.article_scraped_count % 100 == 0:
-            self.logger.info("Spider {}: Crawl {} items".format(self.name, self.article_scraped_count))
-        
+            self.logger.info("Spider {}: Crawl {} items".format(
+                self.name, self.article_scraped_count))
+
         yield Article(
             url=url,
             lang=lang,

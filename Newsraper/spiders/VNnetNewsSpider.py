@@ -1,8 +1,8 @@
 import scrapy
 from scrapy import Request
-from News_Crawler.spiders.NewsSpider import NewsSpider
-from News_Crawler.items import Article
-from News_Crawler import utils
+from Newsraper.spiders.NewsSpider import NewsSpider
+from Newsraper.items import Article
+from Newsraper import utils
 import json
 
 
@@ -34,7 +34,8 @@ class VNnetNewsSpider(NewsSpider):
                 "category_url_fmt": "http://vietnamnet.vn/jsx/loadmore/?domain=desktop&c={}&p={}&s=25&a=6",
                 "page_idx": page_idx
             }
-            category_url = meta["category_url_fmt"].format(meta["c_query"], meta["page_idx"])
+            category_url = meta["category_url_fmt"].format(
+                meta["c_query"], meta["page_idx"])
             yield Request(category_url, self.parse_category, meta=meta, errback=self.errback)
 
     def parse_category(self, response):
@@ -45,7 +46,8 @@ class VNnetNewsSpider(NewsSpider):
         data = json.loads(data[len(prefix_str):])
 
         # Navigate to article
-        self.logger.info("Parse url {}, Num Article urls : {}".format(response.url, len(data)))
+        self.logger.info("Parse url {}, Num Article urls : {}".format(
+            response.url, len(data)))
         for article in data:
             time = '_'.join([article["publishdate"], article["publishtime"]])
             time = self.transform_time_fmt(time, src_fmt="%d/%m/%Y_%H:%M")
@@ -62,7 +64,8 @@ class VNnetNewsSpider(NewsSpider):
         # Navigate to next page
         if meta["page_idx"] < self.page_per_category_limit and len(data) > 0:
             meta["page_idx"] += 1
-            next_page = meta["category_url_fmt"].format(meta["c_query"], meta["page_idx"])
+            next_page = meta["category_url_fmt"].format(
+                meta["c_query"], meta["page_idx"])
             yield Request(next_page, self.parse_category, meta=meta, errback=self.errback)
 
     def parse_article(self, response):
@@ -74,13 +77,15 @@ class VNnetNewsSpider(NewsSpider):
         title = meta["title"]
         category = meta["category"]
         intro = meta["intro"]
-        content = ' '.join(response.xpath("//div[@id='ArticleContent']//text()").extract())
+        content = ' '.join(response.xpath(
+            "//div[@id='ArticleContent']//text()").extract())
         time = meta["time"]
 
         self.article_scraped_count += 1
         if self.article_scraped_count % 100 == 0:
-            self.logger.info("Spider {}: Crawl {} items".format(self.name, self.article_scraped_count))
-        
+            self.logger.info("Spider {}: Crawl {} items".format(
+                self.name, self.article_scraped_count))
+
         yield Article(
             url=url,
             lang=lang,

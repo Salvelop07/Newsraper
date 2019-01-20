@@ -1,19 +1,17 @@
 import scrapy
 from scrapy import Request
-from News_Crawler.spiders.NewsSpider import NewsSpider
-from News_Crawler.items import Article
-from News_Crawler import utils
+from Newsraper.spiders.NewsSpider import NewsSpider
+from Newsraper.items import Article
+from Newsraper import utils
 
 
-class NLDNewsSpider(NewsSpider):
-    name = "NLD"
-    allowed_domains = ["nld.com.vn"]
-    base_url = "https://nld.com.vn"
+class TapChiHangKhongNewsSpider(NewsSpider):
+    name = "TapChiHangKhong"
+    allowed_domains = ["tapchihangkhong.com"]
 
     url_category_list = [
-        # ("https://nld.com.vn/hang-hang-khong", "Hãng hàng không"),
-        # ("https://nld.com.vn/giao-duc-khoa-hoc", "Giáo dục"),
-        # ("https://nld.com.vn/cong-doan/viec-lam", "Việc làm")
+        # ("https://www.tapchihangkhong.com/quoc-noi", "Hàng không"),
+        # ("https://www.tapchihangkhong.com/quoc-te", "Hàng không"),
     ]
 
     def __init__(self):
@@ -24,7 +22,7 @@ class NLDNewsSpider(NewsSpider):
         for category_url, category in self.url_category_list:
             meta = {
                 "category": category,
-                "category_url_fmt": category_url + "/trang-{}.htm",
+                "category_url_fmt": category_url + "/page/{}/",
                 "page_idx": page_idx
             }
             category_url = meta["category_url_fmt"].format(meta["page_idx"])
@@ -34,12 +32,12 @@ class NLDNewsSpider(NewsSpider):
         meta = dict(response.meta)
 
         # Navigate to article
-        article_urls = response.css(".contentpage .listhlv21 a::attr(href)").extract()
-        article_urls.extend(response.css(".contentpage .listitem .item-bt>a::attr(href)").extract())
+        article_urls = response.css(
+            "#main-content article.item-list .post-box-title a::attr(href)").extract()
 
-        self.logger.info("Parse url {}, Num Article urls : {}".format(response.url, len(article_urls)))
+        self.logger.info("Parse url {}, Num Article urls : {}".format(
+            response.url, len(article_urls)))
         for article_url in article_urls:
-            article_url = self.base_url + article_url
             if utils.is_valid_url(article_url):
                 yield Request(article_url, self.parse_article, meta={"category": meta["category"]}, errback=self.errback)
 
@@ -50,25 +48,26 @@ class NLDNewsSpider(NewsSpider):
             yield Request(next_page, self.parse_category, meta=meta, errback=self.errback)
 
     def parse_article(self, response):
-        content_div = response.css(".contentleft")
+        article_div = response.css("#main-content article")
 
         url = response.url
         lang = self.lang
-        title = content_div.css(".titledetail h1::text").extract_first()
+        title = article_div.css(".post-title ::text").extract_first()
         category = response.meta["category"]
-        intro = content_div.css("#ContentRightHeight .sapo::text").extract_first()
-        content = ' '.join(content_div.css("#ContentRightHeight #divNewsContent ::text").extract())
-        time = content_div.css("#ContentRightHeight .ngayxuatban::text").extract_first()
+        intro = ''
+        content = ' '.join(article_div.xpath(
+            ".//div[@class='entry']//text()[not(ancestor::script)]").extract())
+        time = article_div.css(".updated ::text").extract_first()
 
         # Transform time to uniform format
         if time is not None:
-            time = time.strip()
-            time = self.transform_time_fmt(time, src_fmt="%d/%m/%Y %H:%M")
+            time = self.transform_time_fmt(time, src_fmt="%Y-%m-%d")
 
         self.article_scraped_count += 1
         if self.article_scraped_count % 100 == 0:
-            self.logger.info("Spider {}: Crawl {} items".format(self.name, self.article_scraped_count))
-        
+            self.logger.info("Spider {}: Crawl {} items".format(
+                self.name, self.article_scraped_count))
+
         yield Article(
             url=url,
             lang=lang,

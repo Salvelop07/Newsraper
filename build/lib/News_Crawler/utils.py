@@ -1,9 +1,12 @@
-import os, time, json, sys
+import os
+import time
+import json
+import sys
 import urllib3
 import pandas as pd
 from datetime import datetime
-import News_Crawler.project_settings as settings
-from News_Crawler.project_settings import DEFAULT_TIME_FORMAT
+import Newsraper.project_settings as settings
+from Newsraper.project_settings import DEFAULT_TIME_FORMAT
 
 
 def get_time_str(time=datetime.now(), fmt=DEFAULT_TIME_FORMAT):

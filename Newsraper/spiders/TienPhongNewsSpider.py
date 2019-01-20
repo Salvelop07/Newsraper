@@ -1,8 +1,8 @@
 import scrapy
 from scrapy import Request
-from News_Crawler.spiders.NewsSpider import NewsSpider
-from News_Crawler.items import Article
-from News_Crawler import utils
+from Newsraper.spiders.NewsSpider import NewsSpider
+from Newsraper.items import Article
+from Newsraper import utils
 
 
 class TienPhongNewsSpider(NewsSpider):
@@ -13,7 +13,7 @@ class TienPhongNewsSpider(NewsSpider):
         # ("https://www.tienphong.vn/kinh-te-thi-truong/", "Tài chính"),
         # ("https://www.tienphong.vn/du-lich/", "Du lịch"),
         # ("https://www.tienphong.vn/nha-dep-phong-thuy/", "Nhà đẹp"),
-        # ("https://www.tienphong.vn/lam-dep/", "Thời trang"),        
+        # ("https://www.tienphong.vn/lam-dep/", "Thời trang"),
         # ("https://www.tienphong.vn/kinh-te-chung-khoan/", "Chứng khoán"),
         # ("https://www.tienphong.vn/thi-truong/", "Bất động sản"),
         # ("https://www.tienphong.vn/phap-luat/", "Pháp luật"),
@@ -41,9 +41,11 @@ class TienPhongNewsSpider(NewsSpider):
         meta = response.meta
 
         # Navigate to article
-        article_urls = response.css("div.cate-list-news div.other-news article>a::attr(href)").extract()
+        article_urls = response.css(
+            "div.cate-list-news div.other-news article>a::attr(href)").extract()
 
-        self.logger.info("Parse url {}, Num Article urls : {}".format(response.url, len(article_urls)))
+        self.logger.info("Parse url {}, Num Article urls : {}".format(
+            response.url, len(article_urls)))
         for article_url in article_urls:
             if utils.is_valid_url(article_url):
                 yield Request(article_url, self.parse_article, meta={"category": meta["category"]}, errback=self.errback)
@@ -63,7 +65,8 @@ class TienPhongNewsSpider(NewsSpider):
         category = response.meta["category"]
         intro = article_div.css(".cms-desc ::text").extract_first()
         content = ' '.join(article_div.css("#article-body ::text").extract())
-        time = article_div.css("#article-meta .byline-dateline time::text").extract_first()
+        time = article_div.css(
+            "#article-meta .byline-dateline time::text").extract_first()
 
         # Transform time to uniform format
         if time is not None:
@@ -71,8 +74,9 @@ class TienPhongNewsSpider(NewsSpider):
 
         self.article_scraped_count += 1
         if self.article_scraped_count % 100 == 0:
-            self.logger.info("Spider {}: Crawl {} items".format(self.name, self.article_scraped_count))
-        
+            self.logger.info("Spider {}: Crawl {} items".format(
+                self.name, self.article_scraped_count))
+
         yield Article(
             url=url,
             lang=lang,

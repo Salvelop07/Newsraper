@@ -1,8 +1,8 @@
 import scrapy
 from scrapy import Request
-from News_Crawler.spiders.NewsSpider import NewsSpider
-from News_Crawler.items import Article
-from News_Crawler import utils
+from Newsraper.spiders.NewsSpider import NewsSpider
+from Newsraper.items import Article
+from Newsraper import utils
 
 
 class NLDNewsSpider(NewsSpider):
@@ -31,10 +31,13 @@ class NLDNewsSpider(NewsSpider):
         meta = dict(response.meta)
 
         # Navigate to article
-        article_urls = response.css(".contentpage .listhlv21 a::attr(href)").extract()
-        article_urls.extend(response.css(".contentpage .listitem .item-bt>a::attr(href)").extract())
+        article_urls = response.css(
+            ".contentpage .listhlv21 a::attr(href)").extract()
+        article_urls.extend(response.css(
+            ".contentpage .listitem .item-bt>a::attr(href)").extract())
 
-        self.logger.info("Parse url {}, Num Article urls : {}".format(response.url, len(article_urls)))
+        self.logger.info("Parse url {}, Num Article urls : {}".format(
+            response.url, len(article_urls)))
         for article_url in article_urls:
             article_url = self.base_url + article_url
             if utils.is_valid_url(article_url):
@@ -53,9 +56,12 @@ class NLDNewsSpider(NewsSpider):
         lang = self.lang
         title = content_div.css(".titledetail h1::text").extract_first()
         category = response.meta["category"]
-        intro = content_div.css("#ContentRightHeight .sapo::text").extract_first()
-        content = ' '.join(content_div.css("#ContentRightHeight #divNewsContent ::text").extract())
-        time = content_div.css("#ContentRightHeight .ngayxuatban::text").extract_first()
+        intro = content_div.css(
+            "#ContentRightHeight .sapo::text").extract_first()
+        content = ' '.join(content_div.css(
+            "#ContentRightHeight #divNewsContent ::text").extract())
+        time = content_div.css(
+            "#ContentRightHeight .ngayxuatban::text").extract_first()
 
         # Transform time to uniform format
         if time is not None:
@@ -64,8 +70,9 @@ class NLDNewsSpider(NewsSpider):
 
         self.article_scraped_count += 1
         if self.article_scraped_count % 100 == 0:
-            self.logger.info("Spider {}: Crawl {} items".format(self.name, self.article_scraped_count))
-        
+            self.logger.info("Spider {}: Crawl {} items".format(
+                self.name, self.article_scraped_count))
+
         yield Article(
             url=url,
             lang=lang,

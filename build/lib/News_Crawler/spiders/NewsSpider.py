@@ -1,5 +1,5 @@
 import scrapy
-from News_Crawler import utils
+from Newsraper import utils
 
 
 class NewsSpider(scrapy.Spider):
@@ -24,4 +24,3 @@ class NewsSpider(scrapy.Spider):
         except:
             self.logger.debug("Exception when parse time_str : ", time_str)
             return ""
-

@@ -1,6 +1,6 @@
 import scrapy
-from News_Crawler import utils
-from News_Crawler.crawl_proxy import ProxyManager
+from Newsraper import utils
+from Newsraper.crawl_proxy import ProxyManager
 import requests
 import random
 import time
@@ -12,7 +12,8 @@ class NewsSpider(scrapy.Spider):
         self.page_per_category_limit = utils.get_crawl_limit_setting(name)
         self.article_scraped_count = 0
         self.lang = "vi"
-        self.pm = ProxyManager(proxies_path="./News_Crawler/Proxy/proxy_list.txt", update=True)
+        self.pm = ProxyManager(
+            proxies_path="./Newsraper/Proxy/proxy_list.txt", update=True)
 
     def parse(self, response):
         raise NotImplementedError()
@@ -32,7 +33,8 @@ class NewsSpider(scrapy.Spider):
 
     def print_num_scraped_items(self, every=50):
         if self.article_scraped_count % every == 0:
-            self.logger.info("\nSpider {}: Crawl {} items\n".format(self.name, self.article_scraped_count))
+            self.logger.info("\nSpider {}: Crawl {} items\n".format(
+                self.name, self.article_scraped_count))
 
     def get_response(self, url, timeout=1.5):
 

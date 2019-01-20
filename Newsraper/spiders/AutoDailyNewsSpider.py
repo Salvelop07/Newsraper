@@ -1,8 +1,8 @@
 import scrapy
 from scrapy import Request
-from News_Crawler.spiders.NewsSpider import NewsSpider
-from News_Crawler.items import Article
-from News_Crawler import utils
+from Newsraper.spiders.NewsSpider import NewsSpider
+from Newsraper.items import Article
+from Newsraper import utils
 
 
 class AutoDailyNewsSpider(NewsSpider):
@@ -34,9 +34,11 @@ class AutoDailyNewsSpider(NewsSpider):
         meta = dict(response.meta)
 
         # Navigate to article
-        article_urls = response.css("div.main-content .late-news-lst li .late-news-tit a::attr(href)").extract()
+        article_urls = response.css(
+            "div.main-content .late-news-lst li .late-news-tit a::attr(href)").extract()
 
-        self.logger.info("Parse url {}, Num Article urls : {}".format(response.url, len(article_urls)))
+        self.logger.info("Parse url {}, Num Article urls : {}".format(
+            response.url, len(article_urls)))
         for article_url in article_urls:
             if utils.is_valid_url(article_url):
                 yield Request(article_url, self.parse_article, meta={"category": meta["category"]}, errback=self.errback)
@@ -64,7 +66,7 @@ class AutoDailyNewsSpider(NewsSpider):
 
         self.article_scraped_count += 1
         self.print_num_scraped_items(every=20)
-        
+
         yield Article(
             url=url,
             lang=lang,

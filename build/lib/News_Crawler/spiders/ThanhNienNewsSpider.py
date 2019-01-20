@@ -1,8 +1,8 @@
 import scrapy
 from scrapy import Request
-from News_Crawler.spiders.NewsSpider import NewsSpider
-from News_Crawler.items import Article
-from News_Crawler import utils
+from Newsraper.spiders.NewsSpider import NewsSpider
+from Newsraper.items import Article
+from Newsraper import utils
 
 
 class ThanhNienNewsSpider(NewsSpider):
@@ -36,9 +36,11 @@ class ThanhNienNewsSpider(NewsSpider):
         meta = response.meta
 
         # Navigate to article
-        article_urls = response.css(".cate-content article>a::attr(href)").extract()
+        article_urls = response.css(
+            ".cate-content article>a::attr(href)").extract()
 
-        self.logger.info("Parse url {}, Num Article urls : {}".format(response.url, len(article_urls)))
+        self.logger.info("Parse url {}, Num Article urls : {}".format(
+            response.url, len(article_urls)))
         for article_url in article_urls:
             article_url = meta["base_url"] + article_url
             if utils.is_valid_url(article_url):
@@ -55,9 +57,11 @@ class ThanhNienNewsSpider(NewsSpider):
         meta = response.meta
 
         # Navigate to article
-        article_urls = response.css(".cate-content .zone--timeline article>a::attr(href)").extract()
+        article_urls = response.css(
+            ".cate-content .zone--timeline article>a::attr(href)").extract()
 
-        self.logger.info("Parse url {}, Num Article urls : {}".format(response.url, len(article_urls)))
+        self.logger.info("Parse url {}, Num Article urls : {}".format(
+            response.url, len(article_urls)))
         for article_url in article_urls:
             article_url = meta["base_url"] + article_url
             if utils.is_valid_url(article_url):
@@ -76,7 +80,8 @@ class ThanhNienNewsSpider(NewsSpider):
         lang = self.lang
         title = response.css(".main-title::text").extract_first()
         category = response.meta["category"]
-        intro = ' '.join(response.css(".details-content .sapo ::text").extract())
+        intro = ' '.join(response.css(
+            ".details-content .sapo ::text").extract())
         content = ' '.join(response.xpath(
             "//div[@id='abody']//text()[not(ancestor::script)]").extract())
         time = response.css(".details-heading time ::text").extract_first()
@@ -89,8 +94,9 @@ class ThanhNienNewsSpider(NewsSpider):
 
         self.article_scraped_count += 1
         if self.article_scraped_count % 100 == 0:
-            self.logger.info("Spider {}: Crawl {} items".format(self.name, self.article_scraped_count))
-        
+            self.logger.info("Spider {}: Crawl {} items".format(
+                self.name, self.article_scraped_count))
+
         yield Article(
             url=url,
             lang=lang,
@@ -120,8 +126,9 @@ class ThanhNienNewsSpider(NewsSpider):
 
         self.article_scraped_count += 1
         if self.article_scraped_count % 100 == 0:
-            self.logger.info("Spider {}: Crawl {} items".format(self.name, self.article_scraped_count))
-        
+            self.logger.info("Spider {}: Crawl {} items".format(
+                self.name, self.article_scraped_count))
+
         yield Article(
             url=url,
             lang=lang,

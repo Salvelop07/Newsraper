@@ -5,8 +5,10 @@
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
-from News_Crawler import utils
-import os, math, re
+from Newsraper import utils
+import os
+import math
+import re
 from scrapy.exceptions import DropItem
 
 
@@ -41,7 +43,8 @@ class SaveFilePipeline(object):
         map_category_items = self.data.get(spider_name)
         # spider_save_dir = os.path.join(self.save_dir, spider_name)
         for category, items in map_category_items.items():
-            category_save_dir = os.path.join(self.base_dir, spider_name, category)
+            category_save_dir = os.path.join(
+                self.base_dir, spider_name, category)
             utils.mkdirs(category_save_dir)
             save_path = os.path.join(category_save_dir, "{}_{}_{}_{}articles.{}".format(
                 spider_name, category, self.time_now_str, len(items), self.export_format))
@@ -53,7 +56,7 @@ class SaveFilePipeline(object):
             utils.save_json(items, save_path)
         else:
             utils.save_csv(items, save_path, fields=self.export_fields)
-            
+
         logger.info("Save {} items to {} done".format(len(items), save_path))
 
 
@@ -113,5 +116,3 @@ class ValidItemPipeline(object):
             return item
         else:
             raise DropItem("Item dropped because is not valid : ", item)
-
-

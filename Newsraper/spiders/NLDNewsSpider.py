@@ -1,25 +1,19 @@
 import scrapy
 from scrapy import Request
-from News_Crawler.spiders.NewsSpider import NewsSpider
-from News_Crawler.items import Article
-from News_Crawler import utils
+from Newsraper.spiders.NewsSpider import NewsSpider
+from Newsraper.items import Article
+from Newsraper import utils
 
 
-class DanTriNewsSpider(NewsSpider):
-    name = "DanTri"
-    allowed_domains = ["dantri.com.vn"]
-    base_url = "https://dantri.com.vn"
+class NLDNewsSpider(NewsSpider):
+    name = "NLD"
+    allowed_domains = ["nld.com.vn"]
+    base_url = "https://nld.com.vn"
 
     url_category_list = [
-        # ("https://dantri.com.vn/giai-tri/thoi-trang", "Thời trang"),
-        # ("https://dantri.com.vn/the-thao", "Thể thao"),
-        # ("https://dantri.com.vn/xa-hoi/giao-thong", "Giao thông"),
-        # ("https://dantri.com.vn/giao-duc-khuyen-hoc", "Giáo dục"),
-        # ("https://dantri.com.vn/kinh-doanh/nha-dat", "Bất động sản"),
-        # ("https://dantri.com.vn/kinh-doanh/tai-chinh-dau-tu", "Tài chính"),
-        # ("https://dantri.com.vn/phap-luat", "Pháp luật"),
-        # ("https://dantri.com.vn/suc-khoe/lam-dep", "Làm đẹp"),
-        # ("https://dulich.dantri.com.vn/du-lich/vong-quay-du-lich", "")
+        # ("https://nld.com.vn/hang-hang-khong", "Hãng hàng không"),
+        # ("https://nld.com.vn/giao-duc-khoa-hoc", "Giáo dục"),
+        # ("https://nld.com.vn/cong-doan/viec-lam", "Việc làm")
     ]
 
     def __init__(self):
@@ -40,9 +34,13 @@ class DanTriNewsSpider(NewsSpider):
         meta = dict(response.meta)
 
         # Navigate to article
-        article_urls = response.css("div#listcheckepl > div > a::attr(href)").extract()
+        article_urls = response.css(
+            ".contentpage .listhlv21 a::attr(href)").extract()
+        article_urls.extend(response.css(
+            ".contentpage .listitem .item-bt>a::attr(href)").extract())
 
-        self.logger.info("Parse url {}, Num Article urls : {}".format(response.url, len(article_urls)))
+        self.logger.info("Parse url {}, Num Article urls : {}".format(
+            response.url, len(article_urls)))
         for article_url in article_urls:
             article_url = self.base_url + article_url
             if utils.is_valid_url(article_url):
@@ -55,26 +53,29 @@ class DanTriNewsSpider(NewsSpider):
             yield Request(next_page, self.parse_category, meta=meta, errback=self.errback)
 
     def parse_article(self, response):
-        content_div = response.xpath("//div[@id='ctl00_IDContent_ctl00_divContent']")
+        content_div = response.css(".contentleft")
 
         url = response.url
         lang = self.lang
-        title = content_div.css("h1.fon31.mgb15::text").extract_first()
+        title = content_div.css(".titledetail h1::text").extract_first()
         category = response.meta["category"]
-        intro = ' '.join(content_div.css("h2.fon33::text").extract())
-        content = ' '.join(content_div.css("#divNewsContent ::text").extract())
-        time = content_div.css("div.box26>span::text").extract_first()
+        intro = content_div.css(
+            "#ContentRightHeight .sapo::text").extract_first()
+        content = ' '.join(content_div.css(
+            "#ContentRightHeight #divNewsContent ::text").extract())
+        time = content_div.css(
+            "#ContentRightHeight .ngayxuatban::text").extract_first()
 
         # Transform time to uniform format
         if time is not None:
-            time = time[time.find(", ") + 2:]
-            time = '_'.join(time.split(" - "))
-            time = self.transform_time_fmt(time, src_fmt="%d/%m/%Y_%H:%M")
+            time = time.strip()
+            time = self.transform_time_fmt(time, src_fmt="%d/%m/%Y %H:%M")
 
         self.article_scraped_count += 1
         if self.article_scraped_count % 100 == 0:
-            self.logger.info("Spider {}: Crawl {} items".format(self.name, self.article_scraped_count))
-        
+            self.logger.info("Spider {}: Crawl {} items".format(
+                self.name, self.article_scraped_count))
+
         yield Article(
             url=url,
             lang=lang,

@@ -1,6 +1,7 @@
-from News_Crawler import utils
+from Newsraper import utils
 from lxml import html
-import requests, os
+import requests
+import os
 import pandas as pd
 
 
