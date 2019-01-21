@@ -27,6 +27,9 @@ class VNExpressNewsSpider(NewsSpider):
         # ("https://sohoa.vnexpress.net/tin-tuc/doi-song-so", "Đời sống số")
     ]
 
+    def __init__(self):
+        super().__init__(name=self.name)
+
     def start_requests(self):
         page_idx = 1
         for category_url, category in self.url_category_list:

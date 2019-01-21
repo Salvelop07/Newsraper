@@ -18,6 +18,9 @@ class RongBayNewsSpider(NewsSpider):
         ("https://rongbay.com/Ha-Noi/My-pham-nu-c298", "QC - Mỹ phẩm"),
     ]
 
+    def __init__(self):
+        super().__init__(name=self.name)
+
     def start_requests(self):
         page_idx = 1
         for category_url, category in self.url_category_list:

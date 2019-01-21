@@ -21,6 +21,9 @@ class QuangCao24hSpider(NewsSpider):
         # ("QC - Hàng tiêu dùng", "43-hang-tieu-dung")
     ]
 
+    def __init__(self):
+        super().__init__(name=self.name)
+
     def start_requests(self):
         page_idx = 1
         for category, category_id in self.category_list:

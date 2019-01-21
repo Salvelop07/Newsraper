@@ -8,6 +8,7 @@
 from News_Crawler import utils
 import os, math, re
 from scrapy.exceptions import DropItem
+import pandas as pd
 
 
 class SaveFilePipeline(object):
@@ -43,8 +44,8 @@ class SaveFilePipeline(object):
         for category, items in map_category_items.items():
             category_save_dir = os.path.join(self.base_dir, spider_name, category)
             utils.mkdirs(category_save_dir)
-            save_path = os.path.join(category_save_dir, "{}_{}_{}_{}articles.{}".format(
-                spider_name, category, self.time_now_str, len(items), self.export_format))
+            save_path = os.path.join(category_save_dir, "{}/{}_{}_{}_{}articles.{}".format(
+                self.time_now_str, spider_name, category, self.time_now_str, len(items), self.export_format))
             # Save items with format setting
             self.save_data(items, save_path, spider.logger)
 
@@ -52,7 +53,9 @@ class SaveFilePipeline(object):
         if self.export_format == "json":
             utils.save_json(items, save_path)
         else:
-            utils.save_csv(items, save_path, fields=self.export_fields)
+            df = pd.DataFrame(items)
+            df = df[self.export_fields]
+            utils.save_csv(df, save_path, fields=self.export_fields)
             
         logger.info("Save {} items to {} done".format(len(items), save_path))
 

@@ -23,6 +23,9 @@ class NhanDanNewsSpider(NewsSpider):
         # ("http://www.nhandan.com.vn/thethao", "Thể thao")
     ]
 
+    def __init__(self):
+        super().__init__(name=self.name)
+
     def start_requests(self):
         limit_start = 0
         for category_url, category in self.url_category_list:

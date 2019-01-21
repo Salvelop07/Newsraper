@@ -19,8 +19,11 @@ class VNnetNewsSpider(NewsSpider):
         # ("Mẹ và bé", "doi-song-me-va-be"),
         # ("Du lịch", "doi-song-du-lich"),
         # ("Ẩm thực", "doi-song-am-thuc"),
-        ("Pháp luật", "phap-luat")
+        # ("Pháp luật", "phap-luat")
     ]
+
+    def __init__(self):
+        super().__init__(name=self.name)
 
     def start_requests(self):
         page_idx = 1

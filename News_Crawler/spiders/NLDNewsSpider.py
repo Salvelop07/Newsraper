@@ -16,6 +16,9 @@ class NLDNewsSpider(NewsSpider):
         # ("https://nld.com.vn/cong-doan/viec-lam", "Việc làm")
     ]
 
+    def __init__(self):
+        super().__init__(name=self.name)
+
     def start_requests(self):
         page_idx = 1
         for category_url, category in self.url_category_list:

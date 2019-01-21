@@ -7,7 +7,8 @@ CRAWL_LIMIT = {
     "QuangCao24h": 2,
     "NLD": 2,
     "ThanhNien": 2,
-    "default_crawl_limit": 150
+    "AutoDaily": 200,
+    "default_crawl_limit": None
 }
 
 # file_chunk_size = 1000

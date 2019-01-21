@@ -39,12 +39,22 @@ def save_json(data, path):
     print("Save json data (size = {}) to {} done".format(len(data), path))
 
 
-def save_csv(data, path, fields=None):
+# def save_csv(data, path, fields=None):
+#     if fields is None or len(fields) == 0:
+#         df = pd.DataFrame(data)
+#     else:
+#         df = pd.DataFrame(data, columns=fields)
+#     df.to_csv(path, index=False)
+
+def save_csv(df, path, fields=None):
+    dir = path[:path.rfind("/")]
+    mkdirs(dir)
     if fields is None or len(fields) == 0:
-        df = pd.DataFrame(data)
+        columns = df.columns
     else:
-        df = pd.DataFrame(data, columns=fields)
-    df.to_csv(path, index=False)
+        columns = fields
+    df.to_csv(path, index=False, columns=columns)
+    print("Save csv data (size = {}) to {} done".format(df.shape[0], os.path.abspath(path)))
 
 
 def save_list(data, path):
